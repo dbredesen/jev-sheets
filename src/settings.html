@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><base target="_top"><meta charset="utf-8"><style>
+body{font:14px/1.5 Arial,sans-serif;color:#172b3a;padding:16px;margin:0}h2{font-size:18px;margin:0 0 12px}label{display:block;margin-top:14px;font-weight:600}input{box-sizing:border-box;width:100%;padding:10px;border:1px solid #9aacb8;border-radius:5px;margin-top:4px}button{padding:9px 12px;border:1px solid #bdcbd4;border-radius:5px;background:#fff;color:#172b3a;cursor:pointer;margin:8px 4px 0 0}button.primary{background:#12615f;color:white;border-color:#12615f}button:disabled{opacity:.5;cursor:wait}p{margin:10px 0}.muted{font-size:12px;color:#4b6170}section{margin-top:22px;padding-top:18px;border-top:1px solid #dbe4e9}#message{white-space:pre-wrap;overflow-wrap:anywhere}#message.error{color:#a52424}.status{padding:10px;background:#eef5f5;border-radius:5px}
+</style></head><body>
+<h2>Your TypeSafe account</h2>
+<p class="muted">Your saved key is private to your use of this add-on. Saving it does not change spreadsheet connections.</p>
+<label for="label">Account label</label><input id="label" maxlength="80" placeholder="My TypeSafe account">
+<label for="key">API key</label><input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your TypeSafe API key">
+<button class="primary" id="save">Save key</button><button id="test">Test saved key</button>
+<p id="personal" class="muted"></p>
+<section><h2>This spreadsheet</h2><p class="status" id="connection">Loading connection…</p>
+<p>Connecting your key lets every collaborator’s Jev formulas use your TypeSafe account and API usage. Only formula inputs are sent to TypeSafe.</p>
+<button class="primary" id="connect">Connect my saved key</button><button id="disconnect">Disconnect spreadsheet</button>
+<p class="muted">After connecting or disconnecting, use Extensions → Jev → Refresh Jev formulas. Existing results may remain visible until refreshed.</p></section>
+<section><button id="remove">Remove my saved key</button><p class="muted">Removing your saved key does not disconnect spreadsheets already connected to it. Disconnect those separately or revoke the key at TypeSafe.</p></section>
+<p id="message" role="status" aria-live="polite"></p>
+<script>
+function busy(value){document.querySelectorAll('button').forEach(function(b){b.disabled=value;});}
+function message(text,error){var el=document.getElementById('message');el.textContent=text;el.className=error?'error':'';}
+function status(s){document.getElementById('personal').textContent=s.saved?'A personal key is saved.':'No personal key saved.';document.getElementById('connection').textContent=s.connected?'Connected: '+s.connectionLabel:'Not connected';document.getElementById('label').value=s.label;}
+function call(name,args,done){busy(true);message('Working…');var runner=google.script.run.withSuccessHandler(function(result){busy(false);done(result);}).withFailureHandler(function(error){busy(false);message(error.message||'Action failed.',true);});runner[name].apply(runner,args||[]);}
+document.getElementById('save').onclick=function(){var key=document.getElementById('key');call('jevSaveKey',[key.value,document.getElementById('label').value],function(s){key.value='';status(s);message('Personal key saved. Connect it below to use it in this spreadsheet.');});};
+document.getElementById('test').onclick=function(){call('jevTestKey',[],function(result){message(result);});};
+document.getElementById('connect').onclick=function(){call('jevConnect',[],function(s){status(s);message('Spreadsheet connected. Refresh Jev formulas from the menu.');});};
+document.getElementById('disconnect').onclick=function(){call('jevDisconnect',[],function(s){status(s);message('Spreadsheet disconnected. Refresh formulas to clear stale results.');});};
+document.getElementById('remove').onclick=function(){call('jevRemoveKey',[],function(s){status(s);message('Personal saved key removed. Existing spreadsheet connections are unchanged.');});};
+call('jevSettingsStatus',[],function(s){status(s);message('');});
+</script></body></html>
