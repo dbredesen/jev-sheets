@@ -1,5 +1,28 @@
 # Verification status — September 18, 2026
 
+## September 19 follow-up: reproducible installation
+
+The README now separates **local per-spreadsheet bound installation** from **standalone add-on developer testing**. This is a documented alternative, not a fix for standalone registration. No implementation code was changed for this installation test.
+
+- Standalone failure reproduced in the untouched Connection Isolation spreadsheet, opened through its Editor add-on test URL. `=JEV_NOUL("", "Registration check")` returned `#NAME?`, with the exact message `Unknown function: 'JEV_NOUL'.` This probe makes no API request and does not require a saved key.
+- Created a new [Jev — Clean Repository Install workbook](https://docs.google.com/spreadsheets/d/11nJhc9ED2g2EJixApsi8zKL5IBxInWR-CDikOBi2OUQ/edit).
+- Opened Extensions → Apps Script in that new workbook and installed the unchanged build in [Jev for Sheets — Local](https://script.google.com/home/projects/1Z6khDYopLMJOo1BV8LxLWw3iQQqm4k7jq40mJzqvzyZkgXChM1E3o87k/edit), together with the repository's explicit three-scope manifest. No standalone test deployment, wrapper, library, or key embedded in code was used.
+- After reload, the README registration checks returned TRUE for NOUL, CHOICE, and SCORE. The raw JEV check returned the exact expected `Jev: State must contain valid JSON.` error. All four entry points therefore execute in this clean bound installation.
+- User explicitly approved this fresh project's three OAuth scopes and use of the supplied test key. Google authorization completed, and the key was saved and connected through the standard sidebar. The sidebar's live API test succeeded.
+- The shipped **Add sample worksheets** menu generated Examples, Rubrics, and Tests. All **16 worksheet checks passed**: native Boolean/choice/score results, typed zero and FALSE, blank handling, raw JSON, and invalid-input errors. Raw response identified model `jev-1.13.0`.
+- Inspected the five intentional error messages: invalid threshold, duplicate choice labels, fewer than two score levels, invalid state JSON, and multiple data cells. Thus error-case PASS results were not caused by unknown functions or missing credentials.
+- Changed Examples B4 from dog to sparrow: D4 recalculated from TRUE to FALSE. Restored dog: TRUE. Changed Rubrics A5 from Bird to Avian: the referenced choice result changed to Avian. Restored Bird.
+- Disconnected the spreadsheet through the sidebar and ran **Refresh Jev formulas**. A nonblank formula returned `Jev: No account connected.` Reconnected the saved key and refreshed to restore working formulas.
+
+Tested source: repository commit `7754cea`. A clean export of that commit passes all 11 local tests and builds the same bundle. SHA-256:
+
+```
+4115e178bcbb4687ae7d2a77220ae121e4f7dce80627c9379a2831a990bc7e3d  dist/Code.gs
+6ad640d056b076be6ec426e4cd14979ea7ca9b58ad806514b8182eaf90bf4f0b  dist/appsscript.json
+```
+
+These results establish a reproducible, single-owner bound installation with no source patches. They do not verify another Google account, collaborator behavior, or installed Marketplace distribution. The September 18 observations below are historical; its bound-harness authorization blocker does not apply to the separately authorized September 19 project.
+
 ## Artifacts
 
 - [Standalone Editor add-on project](https://script.google.com/home/projects/1knOaCdGWpQQ6qp79J29ggqexp8O3RrIAj3z3GbIQyhxJCM0XgPH_Kepq/edit)
