@@ -97,6 +97,10 @@ For Marketplace release, configure a standard Google Cloud project, OAuth consen
 - Choice supports 2–255 labels and Score 2–10 levels. Exact model values are not deterministic test fixtures.
 - Standalone distribution is not verified and there is no Marketplace-approved listing. Per-spreadsheet bound installation has different sharing and update behavior.
 
+## Support this project
+
+If you find this useful, you can [buy me a coffee](https://buymeacoffee.com/dbredesen). Contributions and bug reports are equally welcome.
+
 ## References
 
 - https://docs.typesafe.ai/api
