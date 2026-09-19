@@ -2,7 +2,7 @@
 
 Jev formula functions and an API-key menu for Google Sheets. Google Apps Script hosts the runtime; no separate backend, database, or proxy is required.
 
-**Installation status:** the unchanged repository build was installed in a new spreadsheet's bound script and passed all 16 live worksheet checks on September 19, 2026, including calls to TypeSafe. Follow **Local installation in one spreadsheet** below to reproduce that setup. The standalone Editor add-on test deployment still fails formula registration in our tests. These are separate installation paths; the bound installation does not fix or validate standalone distribution. See [TEST_REPORT.md](TEST_REPORT.md).
+**Installation status:** the unchanged repository build was installed in a new spreadsheet's bound script and passed all 16 live worksheet checks on September 19, 2026, including calls to TypeSafe. Follow **Local Installation** below to reproduce that setup. The standalone Editor add-on test deployment still fails formula registration in our tests. These are separate installation paths; the bound installation does not fix or validate standalone distribution. See [TEST_REPORT.md](TEST_REPORT.md).
 
 ## Formulas
 
@@ -20,30 +20,9 @@ Noul returns a native Boolean using strict `probability > threshold` (default 0.
 
 Convenience functions accept one data cell or literal. They send `{data: value}` with instructions explicitly scoped to `data`. Numbers and Booleans retain their type, dates become ISO timestamps, and formatting is not transmitted. Empty data skips the API call. JSON-looking input remains text. Choices and levels can mix literal arguments and vertical ranges; horizontal/rectangular criteria ranges and multi-cell data ranges are rejected.
 
-## API key menu
+## Local Installation
 
-Use **Extensions → [your Jev script's name] → API key & connection**. Save a personal API key and label, test it, then explicitly connect it to the current spreadsheet. For the local installation below the submenu is **Jev for Sheets — Local**.
-
-Personal keys live in the script project's user properties. A spreadsheet connection stores a copy of the selected key in that project's document properties, bound to that spreadsheet ID. Every collaborator's formula evaluations use the connected account. Connecting therefore permits collaborators to consume that account's API usage. Keys are never placed in formulas, cells, source code, or UI responses. Other script projects cannot read these properties; project source editors must nevertheless be trusted. In a bound installation, spreadsheet editors can also edit the script and access its stored credentials. Use it only with trusted editors. Each separately installed bound project has its own saved keys and connection.
-
-Saving/replacing a personal key does not update existing spreadsheet connections. Reconnect each spreadsheet explicitly. **Disconnect spreadsheet** removes the active connection. **Remove my saved key** removes only the personal saved copy, not existing connections; revoke the key at TypeSafe to disable it everywhere.
-
-After connection changes, choose **Refresh Jev formulas**. This re-enters direct `=JEV(...)`, `=JEV_NOUL(...)`, `=JEV_CHOICE(...)`, and `=JEV_SCORE(...)` formulas without changing their text. Nested calls such as `=IF(JEV_NOUL(...),...)` must be re-entered manually. Previously calculated values can remain visible until recalculation. Formula execution checks the connected account each time and never silently falls back to the document owner's key.
-
-## Development
-
-Requires Node 20+; no npm dependencies.
-
-```sh
-npm test
-npm run build
-```
-
-Pure request/response logic is in `src/core.js`; Apps Script adapters and menu actions in `src/addon.js`; example generation in `src/samples.js`; sidebar in `src/settings.html`. Build produces a single `dist/Code.gs` containing the HTML and code, plus an explicit manifest. Tests use fake keys and mocked Apps Script services.
-
-## Local installation in one spreadsheet
-
-This installs the repository build as a **container-bound script**, using Google's [custom-function installation mechanism](https://developers.google.com/apps-script/guides/sheets/functions). “Local” means scoped to that spreadsheet; execution still happens on Google's servers. It does not install an account-wide add-on.
+Local Installation works in **one spreadsheet at a time**. Use it for development or as a workaround until Jev is published in Google Workspace Marketplace. It installs the repository build as a **container-bound script**, using Google's [custom-function installation mechanism](https://developers.google.com/apps-script/guides/sheets/functions). “Local” means scoped to that spreadsheet; execution still happens on Google's servers. It does not install an account-wide add-on.
 
 1. Clone this repository and run `npm test` followed by `npm run build` (Node 20+).
 2. Create a **new blank spreadsheet**. From that spreadsheet choose **Extensions → Apps Script**. Do not start with a standalone project at script.google.com.
@@ -70,6 +49,27 @@ These checks prove that Sheets invokes the functions from the installed bundle. 
 ### Updates and additional spreadsheets
 
 After pulling a new repository revision, rebuild and replace the same two files in the existing bound project. Reload the sheet and refresh formulas; project properties remain in that project. Repeat the installation in each additional spreadsheet and connect a key there. Avoid installing over an existing script without reviewing its contents first.
+
+## API key menu
+
+Use **Extensions → [your Jev script's name] → API key & connection**. Save a personal API key and label, test it, then explicitly connect it to the current spreadsheet. For the local installation above, the submenu is **Jev for Sheets — Local**.
+
+Personal keys live in the script project's user properties. A spreadsheet connection stores a copy of the selected key in that project's document properties, bound to that spreadsheet ID. Every collaborator's formula evaluations use the connected account. Connecting therefore permits collaborators to consume that account's API usage. Keys are never placed in formulas, cells, source code, or UI responses. Other script projects cannot read these properties; project source editors must nevertheless be trusted. In a bound installation, spreadsheet editors can also edit the script and access its stored credentials. Use it only with trusted editors. Each separately installed bound project has its own saved keys and connection.
+
+Saving/replacing a personal key does not update existing spreadsheet connections. Reconnect each spreadsheet explicitly. **Disconnect spreadsheet** removes the active connection. **Remove my saved key** removes only the personal saved copy, not existing connections; revoke the key at TypeSafe to disable it everywhere.
+
+After connection changes, choose **Refresh Jev formulas**. This re-enters direct `=JEV(...)`, `=JEV_NOUL(...)`, `=JEV_CHOICE(...)`, and `=JEV_SCORE(...)` formulas without changing their text. Nested calls such as `=IF(JEV_NOUL(...),...)` must be re-entered manually. Previously calculated values can remain visible until recalculation. Formula execution checks the connected account each time and never silently falls back to the document owner's key.
+
+## Development
+
+Requires Node 20+; no npm dependencies.
+
+```sh
+npm test
+npm run build
+```
+
+Pure request/response logic is in `src/core.js`; Apps Script adapters and menu actions in `src/addon.js`; example generation in `src/samples.js`; sidebar in `src/settings.html`. Build produces a single `dist/Code.gs` containing the HTML and code, plus an explicit manifest. Tests use fake keys and mocked Apps Script services.
 
 ## Standalone add-on developer testing — unresolved
 
