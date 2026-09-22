@@ -2,9 +2,13 @@
 
 A TypeSafe account and API key are required. [Open TypeSafe](https://console.typesafe.ai/) and [manage API keys](https://console.typesafe.ai/keys). TypeSafe API charges may apply.
 
-## Current local installation
+## Local installation
 
 Follow the repository's [Local Installation](https://github.com/dbredesen/jev-sheets#local-installation) instructions to build and install the script in one spreadsheet. Repeat for each additional spreadsheet. Marketplace publication is in preparation; do not look for an approved store installation link yet.
+
+## Marketplace draft testing
+
+Named testers can install the [Jev for Sheets draft](https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317). It is not a public approved release. In each spreadsheet, choose **Extensions → Add-ons → Manage add-ons → Jev for Sheets → Options → Use in this document** before entering formulas. This Google per-document activation step is required even after account-level installation. Reload if Sheets still displays `Unknown function`.
 
 ## Connect an installed script or add-on
 

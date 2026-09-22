@@ -15,7 +15,7 @@ function jevAddSamples() {
     ['Source: synthetic examples; https://docs.typesafe.ai/primitives', '', '', '', '']
   ]);
   examples.getRange('A1:E12').setValues([
-    ['Jev for Google Sheets', '', '', '', ''],
+    ['Jev for Sheets', '', '', '', ''],
     ['Connect a key from Extensions → Jev. Edit the blue inputs to see formulas recalculate.', '', '', '', ''],
     ['Example', 'Editable input', 'Question', 'Result', 'What to try'],
     ['Noul', 'dog', 'Is it a mammal?', '', 'Change dog to sparrow; TRUE should become FALSE.'],

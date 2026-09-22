@@ -11,7 +11,7 @@ def icon(size):
         d.rectangle((int(x*s),int(y*s),int((x+.14)*s),int((y+.14)*s)),fill='#74DEC7')
     d.line([(int(.72*s),int(.20*s)),(int(.72*s),int(.67*s)),(int(.61*s),int(.79*s)),(int(.39*s),int(.79*s)),(int(.29*s),int(.68*s))],fill='white',width=max(4,int(.10*s)))
     return im.resize((size,size),Image.Resampling.LANCZOS)
-for n in (32,128): icon(n).save(out/f'icon-{n}.png')
+for n in (32,120,128): icon(n).save(out/f'icon-{n}.png')
 im=Image.new('RGB',(880,560),'#153D47');d=ImageDraw.Draw(im)
 im.paste(icon(220),(42,55))
 d.text((292,80),'Jev',font=ImageFont.truetype(font,112),fill='white')

@@ -20,10 +20,13 @@ Review the policies as publisher before publishing. Add visible Privacy, Terms, 
 
 Google domain ownership verification may also require a Search Console verification record or tag configured through Wix/domain settings. A page being live alone does not establish ownership verification.
 
+For this project, Google requires verification of the **Domain** property `developedby.ai` using a DNS TXT record. The Search Console challenge was created under `dbredesen@gmail.com`, the Cloud project owner, on September 22. The record value was sent privately to the publisher. Add it at the actual DNS provider (which may differ from Wix), then return to Search Console and select **Verify**. Keep the record in DNS after verification.
+
 ## Review package
 
 - [Listing fields](listing.json) and [full description](listing-description.md)
 - [OAuth justifications and demonstration script](oauth-review.md)
 - [Current publication status](publication-status.md)
+- [Marketplace draft installation test and observed activation step](draft-install-test.md)
 
 Do not include personal API keys, reviewer keys, OAuth tokens, or billing account identifiers in this directory.

@@ -1,30 +1,30 @@
 # Publication status
 
-Updated September 22, 2026. **Not submitted; not approved.**
+Updated September 22, 2026. **Marketplace draft saved; not submitted or approved.**
 
 ## Confirmed
 
 - Public source: https://github.com/dbredesen/jev-sheets
-- Reproducible bound installation: previously verified with 16 live Sheets checks on September 19; see TEST_REPORT.md.
-- Dedicated standard Cloud project created: **Jev for Sheets**, ID `jev-sheets-509414`, number `33542281317`.
-- Billing attached using the owner's approved selection. No paid compute provisioned.
-- Marketplace SDK enabled; External OAuth configuration created with the approved app name and support/contact email.
-- Standalone Apps Script linkage to project `33542281317` confirmed in Project Settings. Previous authorizations need renewal.
-- Local build and all 13 automated tests pass, including two new sidebar state/error tests. Updated sidebar source has not yet been deployed or live-tested.
-- Publisher identity, support address, proposed Wix URLs, listing copy, and policy drafts prepared.
+- Reproducible bound installation: 16 live Sheets checks passed September 19; see [TEST_REPORT.md](../TEST_REPORT.md).
+- Dedicated standard Google Cloud project **Jev for Sheets**: `jev-sheets-509414`, project number `33542281317`. The owner's selected billing account is linked; no paid compute was provisioned.
+- Standalone Apps Script project `1knOaCdGWpQQ6qp79J29ggqexp8O3RrIAj3z3GbIQyhxJCM0XgPH_Kepq` is linked to that Cloud project. The current built source was saved and byte-checked in Apps Script, and numbered version **2** was created. The version 2 deployment ID is `AKfycby82_zRwiDcjn7U4VK6Njnu9xQUNHBgYK5mkwfwR2r5LtT0CdqiYHUPLp9TPGM2F3QawA`.
+- External OAuth consent is in **Testing** with `dbredesen@gmail.com` and `optimizeddiet@gmail.com` saved as test users. The three explicit Apps Script scopes are saved in OAuth Data Access. OAuth branding uses the proposed developedby.ai URLs and now has the matching 120 × 120 logo. Domain ownership and live pages remain unverified. The Verification Center says verification is not required while the app stays in Testing; production verification remains pending.
+- Marketplace SDK App Configuration is saved for a public Sheets Editor add-on, individual and admin installation, Apps Script version 2, publisher Dave Bredesen, support `dbredesen@gmail.com`, and Non-trader status.
+- Listing draft is saved with copy, setup/support URLs, icons, banner, and one actual product screenshot. Draft URL: https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317 . It opens in the owner account with a **DRAFT** banner and Install button.
+- Local build and all 13 automated tests pass. The new sidebar source is deployed in the standalone project and its key test/connection controls worked in an installed draft copy.
+- Draft installed under `dbredesen@gmail.com`. In the unbound [Connection Isolation spreadsheet](https://docs.google.com/spreadsheets/d/1x0XGCogHdVyo3sBjM4bCtcDkS1j1JoJFsGnWEM_opKw/edit), `JEV_NOUL` initially returned `#NAME?`. **Extensions → Add-ons → Manage add-ons → Jev for Sheets → Options → Use in this document** activated the formulas. The nonblank formula then reported the expected `Jev: No account connected.` error. The saved key's sidebar test succeeded, and the spreadsheet was connected. After refresh, NOUL returned TRUE for dog/mammal, CHOICE returned Dog, SCORE returned 2 for an angry message, and raw JEV returned JSON with model `jev-1.13.0`. No bound Jev code was added to this workbook.
+
+## Important scope observation
+
+Marketplace SDK added `userinfo.email` and `userinfo.profile` to the permissions shown during draft installation, in addition to the three explicit Apps Script scopes. Those identity permissions reappeared after an attempt to remove them in SDK configuration. They are not listed in the Apps Script manifest. Verify the final SDK/OAuth permission set and justify or eliminate any unnecessary scope before production submission. The owner separately approved the extra name/profile permission for the draft install.
 
 ## Pending
 
-- Complete Marketplace SDK configuration, OAuth branding/URLs and scopes. Owner and approved second tester were entered and Save clicked; persistence still needs confirmation in Console.
-- Upload the updated sidebar source, live-test it, and select a numbered Apps Script version.
-- Validate standalone formulas without attached Jev code and with a second Google account. The developer test deployment previously returned Unknown function; an actual Marketplace install has not been tested.
-- Publish Wix pages and verify domain ownership.
-- Draft listing icons and banner prepared and banner visually inspected; genuine screenshots and authorization demonstration video remain pending.
-- Provide dedicated reviewer TypeSafe access privately.
-- Complete applicable OAuth verification, Marketplace submission, and address Google's feedback.
+1. Resolve independent installation for `optimizeddiet@gmail.com`. The account is signed in and sees the draft tester banner and Install button. The owner approved installing the draft with its five listed permissions, but clicking **Install** opened an Apps Script `script.google.com/accounts?authuser=1&continueUrl=.../authorize...` page that displayed **Page Not Found**. The account's Apps Script home opens normally and has no projects. No consent screen or successful installation appeared. Do not grant project edit access merely to hide this failure; establish the intended draft-tester flow first.
+2. Broaden the owner test to a newly created workbook and the sample-worksheet/recalculation checks in [draft-install-test.md](draft-install-test.md). The unbound isolation workbook passed the four direct formulas, but a separate newly created workbook was not tested yet.
+3. Publish the five [Wix pages](README.md) and confirm their exact URLs. The proposed URLs were not accessible through the web verification tool on September 22. A `developedby.ai` **Domain** property was started in Search Console under the Cloud-project owner account; the owner must add the generated DNS TXT record at the domain's DNS provider, then verification can be completed. The record was sent privately to the owner, not committed to this repository.
+4. Reconcile SDK-added identity scopes, finish OAuth production/verification, and provide a demonstration recording if requested.
+5. Provide a dedicated TypeSafe reviewer key privately, with suitable controls; confirm the bring-your-own-key setup is accepted for review.
+6. Submit for Marketplace review and address Google's feedback. No approval or publication date is implied by the saved draft.
 
-The chosen app name remains **Jev for Sheets**. Review the current Google naming requirements at submission; do not silently substitute another product name. Third-party API-key entry also needs explicit reviewer assessment against the review criteria.
-
-## Current access limitation
-
-Google Cloud Console access was blocked by automatic approval review citing a usage limit. A subsequent read-only retry after the owner requested continuation was also rejected because the restriction remained in effect. Do not bypass this via another access route. Resume Console work after access is restored. This is separate from the outstanding installation test and Google review.
+The app name is **Jev for Sheets** throughout the current Cloud, OAuth, and listing configuration.

@@ -1,8 +1,8 @@
-# Jev for Google Sheets
+# Jev for Sheets
 
 Jev formula functions and an API-key menu for Google Sheets. Google Apps Script hosts the runtime; no separate backend, database, or proxy is required.
 
-**Installation status:** the unchanged repository build was installed in a new spreadsheet's bound script and passed all 16 live worksheet checks on September 19, 2026, including calls to TypeSafe. Follow **Local Installation** below to reproduce that setup. The standalone Editor add-on test deployment still fails formula registration in our tests. These are separate installation paths; the bound installation does not fix or validate standalone distribution. See [TEST_REPORT.md](TEST_REPORT.md).
+**Installation status:** the local, bound-script path passed 16 live worksheet checks on September 19, 2026. On September 22, the Marketplace **draft** was installed and all four formulas ran in a spreadsheet without bound Jev code. Google required **Use in this document** through Manage add-ons before the formulas registered. The developer **Test deployments** route still returns `Unknown function` in our tests. The draft is not an approved public listing. See [TEST_REPORT.md](TEST_REPORT.md).
 
 ## Formulas
 
@@ -50,6 +50,17 @@ These checks prove that Sheets invokes the functions from the installed bundle. 
 
 After pulling a new repository revision, rebuild and replace the same two files in the existing bound project. Reload the sheet and refresh formulas; project properties remain in that project. Repeat the installation in each additional spreadsheet and connect a key there. Avoid installing over an existing script without reviewing its contents first.
 
+## Marketplace draft installation (approved testers only)
+
+The [Jev for Sheets draft listing](https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317) is available only to named Google OAuth/draft testers. It is for development testing while the public listing and OAuth verification remain unfinished. An installed add-on does not require copying code into each spreadsheet.
+
+1. Install the draft from its Marketplace page with the approved tester account and review Google's permissions.
+2. Open a spreadsheet. Choose **Extensions → Add-ons → Manage add-ons**, find **Jev for Sheets**, open its **Options** menu, and turn on **Use in this document**. This is a standard Google add-on activation step; do it in each spreadsheet where you want Jev formulas. Reload the sheet if necessary.
+3. Run the [registration checks](#registration-checks-no-key-or-api-usage). `Unknown function` means the add-on has not registered in that document.
+4. Open **Extensions → Jev for Sheets → API key & connection** to save, test, and connect your own TypeSafe key. Refresh formulas after connecting.
+
+The September 22 owner-account test returned TRUE for NOUL, Dog for CHOICE, 2 for SCORE, and raw API JSON for JEV in an unbound workbook. A second account still needs verification. The test-deployment route below is a different mechanism and remains unresolved.
+
 ## API key menu
 
 Use **Extensions → [your Jev script's name] → API key & connection**. Save a personal API key and label, test it, then explicitly connect it to the current spreadsheet. For the local installation above, the submenu is **Jev for Sheets — Local**.
@@ -73,7 +84,7 @@ Pure request/response logic is in `src/core.js`; Apps Script adapters and menu a
 
 ## Standalone add-on developer testing — unresolved
 
-This is the intended add-on distribution architecture, but the following developer test route is **not a verified working installation path for formulas**. Use it to investigate standalone registration; do not put bound Jev code into its test spreadsheet, because that would mask a failure.
+This private **Test deployments** route is **not a verified working installation path for formulas**. The Marketplace draft installation above did register them after document activation. Use the developer route only to investigate its separate failure; do not put bound Jev code into its test spreadsheet, because that would mask a failure.
 
 1. Create a standalone project at https://script.google.com/home.
 2. Paste `dist/Code.gs` into `Code.gs`.
@@ -85,7 +96,7 @@ This is the intended add-on distribution architecture, but the following develop
 
 Open test documents through their test deployment URLs; a private developer test is not a public Marketplace installation. Test deployments persist properties for the same script/document pair. This milestone does not use installable triggers.
 
-**Observed failure, cause unconfirmed:** our standalone test exposes its menu and sidebar and calls TypeSafe, but Sheets reports `Unknown function` for formulas. On September 19 this reproduced in the untouched second test spreadsheet with a blank-input formula that makes no API call. A similar symptom is reported in [Google's Apps Script samples issue #195](https://github.com/googleworkspace/apps-script-samples/issues/195); that report does not establish our root cause or imply every private deployment fails. Neither a working bound installation nor this failure proves how Marketplace installation will behave.
+**Observed developer-test failure, cause unconfirmed:** the private test deployment exposes its menu and sidebar and calls TypeSafe, but Sheets reports `Unknown function` for formulas. On September 19 this reproduced in the untouched second test spreadsheet with a blank-input formula. A similar symptom is reported in [Google's Apps Script samples issue #195](https://github.com/googleworkspace/apps-script-samples/issues/195). The September 22 Marketplace draft test in that same workbook succeeded after using **Use in this document**; that does not establish that the private Test deployments route works.
 
 For Marketplace release, configure a standard Google Cloud project, OAuth consent and any required verification, Marketplace SDK/listing, support/privacy URLs, and submit for Google's review. No separate backend is introduced by publication. Draft listing materials, Wix page copy, and current preparation status are in [marketplace/README.md](marketplace/README.md).
 
@@ -95,7 +106,7 @@ For Marketplace release, configure a standard Google Cloud project, OAuth consen
 - No caching, batching across formula cells, automatic retries, or data-range inference in v1. Each nonblank formula makes a request and can incur TypeSafe usage; requests and usage grow with sheet size.
 - API errors throw sanitized Sheets errors. HTTP response bodies and credentials are not logged. Responses too large for one cell are rejected.
 - Choice supports 2–255 labels and Score 2–10 levels. Exact model values are not deterministic test fixtures.
-- Standalone distribution is not verified and there is no Marketplace-approved listing. Per-spreadsheet bound installation has different sharing and update behavior.
+- Marketplace draft installation works in the tested owner account after document activation, but second-account and public-release behavior remain unverified. There is no Marketplace-approved listing. Per-spreadsheet bound installation has different sharing and update behavior.
 
 ## Support this project
 
