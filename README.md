@@ -87,7 +87,7 @@ Open test documents through their test deployment URLs; a private developer test
 
 **Observed failure, cause unconfirmed:** our standalone test exposes its menu and sidebar and calls TypeSafe, but Sheets reports `Unknown function` for formulas. On September 19 this reproduced in the untouched second test spreadsheet with a blank-input formula that makes no API call. A similar symptom is reported in [Google's Apps Script samples issue #195](https://github.com/googleworkspace/apps-script-samples/issues/195); that report does not establish our root cause or imply every private deployment fails. Neither a working bound installation nor this failure proves how Marketplace installation will behave.
 
-For Marketplace release, configure a standard Google Cloud project, OAuth consent and any required verification, Marketplace SDK/listing, support/privacy URLs, and submit for Google's review. No separate backend is introduced by publication.
+For Marketplace release, configure a standard Google Cloud project, OAuth consent and any required verification, Marketplace SDK/listing, support/privacy URLs, and submit for Google's review. No separate backend is introduced by publication. Draft listing materials, Wix page copy, and current preparation status are in [marketplace/README.md](marketplace/README.md).
 
 ## Limits
 

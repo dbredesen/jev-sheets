@@ -60,3 +60,12 @@ The 16 native worksheet tests have therefore **not passed yet**. Error-case rows
 6. Test a second collaborator account and an actual installed Marketplace distribution before claiming production installation readiness. Neither is verified by the mocked tests or bound harness.
 
 No Marketplace publication has been performed. No API key is stored in these source files or this report.
+
+
+## September 22 — Marketplace preparation
+
+- Local build succeeds and all 13 Node tests pass (11 existing, 2 new sidebar tests).
+- New sidebar tests cover pending/disabled controls, saved-key removal while a document remains connected, key-field clearing after save, and recovery from a failed connect request.
+- Sidebar copy now discloses third-party API charges and transmitted formula inputs and links account creation, key management, support, and formula help.
+- New source is not yet deployed or verified in live Sheets; earlier live results apply to the previous bundle.
+- Standalone Apps Script is linked to standard Cloud project 33542281317. This does not establish that standalone formulas work. See marketplace/publication-status.md for remaining verification work.
