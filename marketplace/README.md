@@ -18,9 +18,9 @@ The five Markdown drafts in `public-pages/` are the editable source. `npm run si
 
 The owner should review the privacy policy and terms as publisher. The site has visible Privacy, Terms, Support, and Setup navigation and retains draft availability wording until Marketplace approval.
 
-### DNS handoff for the owner
+### DNS configuration
 
-Namecheap is the registrar, but public NS lookup for `developedby.ai` returns `ns12.wixdns.net` and `ns13.wixdns.net`: **Wix hosts the authoritative DNS**. Namecheap's Advanced DNS Host Records screen is not the active zone, and no Namecheap hosting/cPanel account is required. In **Wix → Domains → Domain Actions for developedby.ai → Manage DNS Records**, find **CNAME (Aliases) → + Add Record**. Enter **Host Name `jev`** and **Value `dbredesen.github.io`**, then click **Save** and **Save Changes**. Do not include `https://` or `/jev-sheets`. Do not change the existing root, `www`, email, or Google Search Console TXT records. If `jev` already has a record, inspect it before adding a conflicting CNAME. The GitHub Pages custom domain is already set. After DNS resolves and GitHub provisions a certificate, enable **Enforce HTTPS** under repository **Settings → Pages**. Do not click Namecheap's **Change DNS Type**: migrating authoritative DNS requires copying all existing records first.
+Namecheap is the registrar, but public NS lookup for `developedby.ai` returns `ns12.wixdns.net` and `ns13.wixdns.net`: **Wix hosts the authoritative DNS**. The owner added a CNAME in Wix with **Host Name `jev`** and **Value `dbredesen.github.io`**. Public DNS resolves and GitHub Pages serves all five pages over HTTP. GitHub's certificate is still provisioning. After HTTPS becomes valid, enable **Enforce HTTPS** under repository **Settings → Pages**. Do not click Namecheap's **Change DNS Type**: migrating authoritative DNS requires copying all existing records first.
 
 The **Domain** property `developedby.ai` was verified in Google Search Console under `dbredesen@gmail.com`, the Cloud project owner, on September 22. Keep its TXT record in DNS. Google ownership verification is separate from GitHub Pages domain configuration. The old Wix URL remains 404 and should not be used for the listing.
 
