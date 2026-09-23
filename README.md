@@ -2,7 +2,7 @@
 
 Jev formula functions and an API-key menu for Google Sheets. Google Apps Script hosts the runtime; no separate backend, database, or proxy is required.
 
-**Installation status:** the local, bound-script path passed 16 live worksheet checks on September 19, 2026. On September 22, the Marketplace **draft** was installed on the owner account; all four formulas and 16 generated worksheet checks passed without bound Jev code. Google required **Use in this document** through Manage add-ons before the formulas registered. A fresh second workbook confirmed that connections are document-scoped. Independent installation on another account is still unresolved. The developer **Test deployments** route still returns `Unknown function` in our tests. The draft is not an approved public listing. See [TEST_REPORT.md](TEST_REPORT.md).
+**Installation status:** the local, bound-script path passed 16 live worksheet checks on September 19, 2026. On September 22, the Marketplace **draft** was installed on the owner account; all four formulas and 16 generated worksheet checks passed without bound Jev code. Google required **Use in this document** through Manage add-ons before the formulas registered. A fresh second workbook confirmed that connections are document-scoped. An independent Google account also installed the draft and registered formulas without attached code; API calls were not tested on that account. The developer **Test deployments** route still returns `Unknown function` in our tests. The draft is not an approved public listing. See [TEST_REPORT.md](TEST_REPORT.md).
 
 ## Formulas
 
@@ -59,7 +59,7 @@ The [Jev for Sheets draft listing](https://workspace.google.com/marketplace/app/
 3. Run the [registration checks](#registration-checks-no-key-or-api-usage). `Unknown function` means the add-on has not registered in that document.
 4. Open **Extensions → Jev for Sheets → API key & connection** to save, test, and connect your own TypeSafe key. Refresh formulas after connecting.
 
-The September 22 owner-account test returned TRUE for NOUL, Dog for CHOICE, 2 for SCORE, and raw API JSON for JEV in an unbound workbook. All 16 generated worksheet checks passed, and a new blank workbook independently registered the functions without inheriting a connection. A second Google account still needs verification. The test-deployment route below is a different mechanism and remains unresolved.
+The September 22 owner-account test returned TRUE for NOUL, Dog for CHOICE, 2 for SCORE, and raw API JSON for JEV in an unbound workbook. All 16 generated worksheet checks passed, and a new blank workbook independently registered the functions without inheriting a connection. A second Google account installed the draft in a separate Chrome profile and registered NOUL and CHOICE in its own workbook; without a TypeSafe connection, they returned the expected connection error. The test-deployment route below is a different mechanism and remains unresolved.
 
 ## API key menu
 
@@ -106,7 +106,7 @@ For Marketplace release, configure a standard Google Cloud project, OAuth consen
 - No caching, batching across formula cells, automatic retries, or data-range inference in v1. Each nonblank formula makes a request and can incur TypeSafe usage; requests and usage grow with sheet size.
 - API errors throw sanitized Sheets errors. HTTP response bodies and credentials are not logged. Responses too large for one cell are rejected.
 - Choice supports 2–255 labels and Score 2–10 levels. Exact model values are not deterministic test fixtures.
-- Marketplace draft installation works in the tested owner account after document activation, but second-account and public-release behavior remain unverified. There is no Marketplace-approved listing. Per-spreadsheet bound installation has different sharing and update behavior.
+- Marketplace draft installation works in the tested owner and independent tester accounts after document activation, but TypeSafe API calls from the tester account and public-release behavior remain unverified. There is no Marketplace-approved listing. Per-spreadsheet bound installation has different sharing and update behavior.
 
 ## Support this project
 
