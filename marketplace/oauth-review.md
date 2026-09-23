@@ -12,7 +12,7 @@ Authorized domain: developedby.ai. Domain ownership and live public pages must b
 | script.container.ui | Display the key/settings sidebar, menu feedback, and formula help in Sheets. | Open API key & connection and Help. |
 | script.external_request | Send the formula's explicit inputs to https://api.typesafe.ai/v1/systemone with the user's TypeSafe key. | Test a review-only key and calculate representative formulas. |
 
-Use the identical scope list in src/appsscript.json, OAuth Data Access, and Marketplace SDK. Google Console's actual scope classification determines which verification steps are required; do not assume a restricted-scope assessment is needed. This app does not request Drive-wide or Gmail access.
+The three functional scopes above are declared in `src/appsscript.json` and OAuth Data Access. The Marketplace SDK also automatically includes `userinfo.email` and `userinfo.profile`; the SDK restored them after removal, and draft installation consent displayed both. The script does not use either identity scope. Before OAuth verification, reconcile this SDK-added pair with Google's scope-matching guidance and explain the observed consent behavior accurately. Do not add unnecessary identity access to the Apps Script manifest merely to make the lists look identical. Google Console currently classifies `script.container.ui` and `script.external_request` as sensitive, `spreadsheets.currentonly` as non-sensitive, and no declared scope as restricted. This app does not request Drive-wide or Gmail access.
 
 ## Demo recording script
 
@@ -36,7 +36,7 @@ The app uses Google authorization for Sheets and a separately supplied TypeSafe 
 
 ## Dedicated test access
 
-Create a separate TypeSafe key for reviewers, with a usage cap if the provider supports one and enough credit for the demo. Provide it only in Google's private reviewer instructions. Do not use the developer's personal test key, put a key in this repository, or show it in screenshots. Remove/revoke reviewer access after review is finished.
+Create a separate TypeSafe key for reviewers, with a usage cap if the provider supports one and enough credit for the demo. The September 23 TypeSafe key-creation dialog showed only a name field and no per-key cap; check account-level controls after the owner accepts TypeSafe's updated terms. Provide the key only in Google's private reviewer instructions. Do not use the developer's personal test key, put a key in this repository, or show it in screenshots. Remove/revoke reviewer access after review is finished.
 
 ## References (checked September 22, 2026)
 
