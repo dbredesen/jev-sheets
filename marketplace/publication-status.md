@@ -24,7 +24,7 @@ Marketplace SDK added `userinfo.email` and `userinfo.profile` to the permissions
 
 ## Pending
 
-1. The owner must add the `jev` CNAME in Namecheap. GitHub Pages is already configured and built. After DNS propagates and HTTPS is available, verify all five [GitHub Pages URLs](README.md), enable **Enforce HTTPS**, and update the live Google OAuth branding and Marketplace listing from the old Wix URLs to the new ones. The domain ownership TXT check is already complete.
+1. The owner must add the `jev` CNAME in the domain's cPanel **Zone Editor**; Namecheap's Advanced DNS Host Records screen is read-only for this domain. GitHub Pages is already configured and built. After DNS propagates and HTTPS is available, verify all five [GitHub Pages URLs](README.md), enable **Enforce HTTPS**, and update the live Google OAuth branding and Marketplace listing from the old Wix URLs to the new ones. The domain ownership TXT check is already complete.
 2. Reconcile SDK-added identity scopes, finish OAuth production/verification, and provide a demonstration recording if requested.
 3. Provide a dedicated TypeSafe reviewer key privately, with suitable controls; confirm the bring-your-own-key setup is accepted for review. A second-account API call remains untested because no key was supplied for that account; installation and formula registration were verified independently.
 4. Submit for Marketplace review and address Google's feedback. No approval or publication date is implied by the saved draft.
