@@ -20,9 +20,9 @@ The owner should review the privacy policy and terms as publisher. The site has 
 
 ### DNS configuration
 
-Namecheap is the registrar, but public NS lookup for `developedby.ai` returns `ns12.wixdns.net` and `ns13.wixdns.net`: **Wix hosts the authoritative DNS**. The owner added a CNAME in Wix with **Host Name `jev`** and **Value `dbredesen.github.io`**. Public DNS resolves and GitHub Pages serves all five pages over HTTP. GitHub's certificate is still provisioning. After HTTPS becomes valid, enable **Enforce HTTPS** under repository **Settings → Pages**. Do not click Namecheap's **Change DNS Type**: migrating authoritative DNS requires copying all existing records first.
+Namecheap is the registrar, but public NS lookup for `developedby.ai` returns `ns12.wixdns.net` and `ns13.wixdns.net`: **Wix hosts the authoritative DNS**. The owner added a CNAME in Wix with **Host Name `jev`** and **Value `dbredesen.github.io`**. GitHub Pages now serves all five pages over valid HTTPS with **Enforce HTTPS** enabled. Do not click Namecheap's **Change DNS Type**: migrating authoritative DNS requires copying all existing records first.
 
-The **Domain** property `developedby.ai` was verified in Google Search Console under `dbredesen@gmail.com`, the Cloud project owner, on September 22. Keep its TXT record in DNS. Google ownership verification is separate from GitHub Pages domain configuration. The old Wix URL remains 404 and should not be used for the listing.
+The **Domain** property `developedby.ai` was verified in Google Search Console under `dbredesen@gmail.com`, the Cloud project owner, on September 22. Keep its TXT record in DNS. Google ownership verification is separate from GitHub Pages domain configuration. OAuth branding and the Marketplace draft now use the GitHub Pages URLs.
 
 ## Review package
 
