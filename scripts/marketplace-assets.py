@@ -9,7 +9,21 @@ def icon(size):
     s=size*scale
     for x,y in [(0.16,0.16),(0.38,0.16),(0.16,0.38),(0.38,0.38)]:
         d.rectangle((int(x*s),int(y*s),int((x+.14)*s),int((y+.14)*s)),fill='#74DEC7')
-    d.line([(int(.72*s),int(.20*s)),(int(.72*s),int(.67*s)),(int(.61*s),int(.79*s)),(int(.39*s),int(.79*s)),(int(.29*s),int(.68*s))],fill='white',width=max(4,int(.10*s)))
+    # A single continuous stroke gives the J a smooth hook at small icon sizes.
+    start = (.72*s, .60*s)
+    controls = ((.72*s, .89*s), (.30*s, .90*s), (.28*s, .68*s))
+    curve = []
+    for step in range(101):
+        t = step / 100
+        u = 1 - t
+        x = u**3*start[0] + 3*u*u*t*controls[0][0] + 3*u*t*t*controls[1][0] + t**3*controls[2][0]
+        y = u**3*start[1] + 3*u*u*t*controls[0][1] + 3*u*t*t*controls[1][1] + t**3*controls[2][1]
+        curve.append((round(x), round(y)))
+    width = round(.10*s)
+    d.line([(round(.72*s), round(.20*s)), start, *curve], fill='white', width=width, joint='curve')
+    end_x, end_y = curve[-1]
+    radius = width / 2
+    d.ellipse((end_x-radius, end_y-radius, end_x+radius, end_y+radius), fill='white')
     return im.resize((size,size),Image.Resampling.LANCZOS)
 for n in (32,120,128): icon(n).save(out/f'icon-{n}.png')
 im=Image.new('RGB',(880,560),'#153D47');d=ImageDraw.Draw(im)
