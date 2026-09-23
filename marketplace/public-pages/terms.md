@@ -20,7 +20,7 @@ Google Apps Script quotas, TypeSafe availability, account permissions, and servi
 
 ## Privacy and ending use
 
-Read the [privacy policy](https://developedby.ai/jev-sheets/privacy/) for data processing and deletion details. You may stop using the software at any time. Disconnect spreadsheets, remove saved keys, and revoke your TypeSafe key as needed; uninstalling alone does not revoke a third-party key or erase spreadsheet results.
+Read the [privacy policy](https://jev.developedby.ai/privacy/) for data processing and deletion details. You may stop using the software at any time. Disconnect spreadsheets, remove saved keys, and revoke your TypeSafe key as needed; uninstalling alone does not revoke a third-party key or erase spreadsheet results.
 
 ## Source and third-party services
 

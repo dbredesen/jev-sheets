@@ -17,7 +17,7 @@ For example: `=JEV_CHOICE(B3, "Which team should handle this?", "Sales", "Suppor
 
 The project is currently available for local installation in individual spreadsheets. Marketplace publication is in preparation; there is no approved Marketplace installation link yet.
 
-[Source and local installation instructions](https://github.com/dbredesen/jev-sheets#local-installation) · [Setup guide](https://developedby.ai/jev-sheets/setup/)
+[Source and local installation instructions](https://github.com/dbredesen/jev-sheets#local-installation) · [Setup guide](https://jev.developedby.ai/setup/)
 
 ## Your TypeSafe account
 
@@ -25,4 +25,4 @@ You need a [TypeSafe account and API key](https://console.typesafe.ai/). The add
 
 Your formula's data, questions, and supplied choices or score levels are sent to TypeSafe for processing. AI results can be wrong; review them before acting.
 
-[Privacy](https://developedby.ai/jev-sheets/privacy/) · [Terms](https://developedby.ai/jev-sheets/terms/) · [Support](https://developedby.ai/jev-sheets/support/)
+[Privacy](https://jev.developedby.ai/privacy/) · [Terms](https://jev.developedby.ai/terms/) · [Support](https://jev.developedby.ai/support/)

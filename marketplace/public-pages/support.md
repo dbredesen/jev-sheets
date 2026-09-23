@@ -12,4 +12,4 @@ Include the formula (with sensitive inputs removed), error message, installation
 - **Rate limit or timeout:** reduce simultaneous formulas and retry later. Apps Script custom functions have a 30-second limit.
 - **Old values after disconnect:** existing results may remain visible until recalculation. Refresh Jev formulas or remove the results as appropriate.
 
-[Setup](https://developedby.ai/jev-sheets/setup/) · [Privacy and deletion](https://developedby.ai/jev-sheets/privacy/) · [Terms](https://developedby.ai/jev-sheets/terms/)
+[Setup](https://jev.developedby.ai/setup/) · [Privacy and deletion](https://jev.developedby.ai/privacy/) · [Terms](https://jev.developedby.ai/terms/)

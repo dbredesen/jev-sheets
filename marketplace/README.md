@@ -4,23 +4,25 @@ Publisher: **Dave Bredesen** · Support: **dbredesen@gmail.com** · App: **Jev f
 
 These are preparation materials, not an approved or submitted listing.
 
-## Wix pages to publish
+## Public website on GitHub Pages
 
-Paste the following Markdown copy into Wix text elements, preserving headings and links. Publish pages without sign-in requirements. The proposed paths below must match the final OAuth and listing URLs; if Wix uses different paths, update listing.json and all page links before submitting.
+The five Markdown drafts in `public-pages/` are the editable source. `npm run site:build` renders plain HTML to the repository's `/docs` directory using `markdown-it-py` (install with `python3 -m pip install -r scripts/requirements-site.txt` if needed). Commit source and generated HTML together. Set GitHub Pages to publish `main` → `/docs`, with custom domain `jev.developedby.ai`. This website has no Wix dependency or runtime backend.
 
 | Public URL | Copy |
 | --- | --- |
-| https://developedby.ai/jev-sheets/ | [Homepage](public-pages/home.md) |
-| https://developedby.ai/jev-sheets/privacy/ | [Privacy policy](public-pages/privacy.md) |
-| https://developedby.ai/jev-sheets/terms/ | [Terms](public-pages/terms.md) |
-| https://developedby.ai/jev-sheets/support/ | [Support](public-pages/support.md) |
-| https://developedby.ai/jev-sheets/setup/ | [Setup](public-pages/setup.md) |
+| https://jev.developedby.ai/ | [Homepage](public-pages/home.md) |
+| https://jev.developedby.ai/privacy/ | [Privacy policy](public-pages/privacy.md) |
+| https://jev.developedby.ai/terms/ | [Terms](public-pages/terms.md) |
+| https://jev.developedby.ai/support/ | [Support](public-pages/support.md) |
+| https://jev.developedby.ai/setup/ | [Setup](public-pages/setup.md) |
 
-Review the policies as publisher before publishing. Add visible Privacy, Terms, Support, and Setup links to the homepage. Keep the current availability wording until Marketplace approval; do not add a pretend installation link.
+The owner should review the privacy policy and terms as publisher. The site has visible Privacy, Terms, Support, and Setup navigation and retains draft availability wording until Marketplace approval.
 
-Google domain ownership verification may also require a Search Console verification record or tag configured through Wix/domain settings. A page being live alone does not establish ownership verification.
+### DNS handoff for the owner
 
-The **Domain** property `developedby.ai` was verified in Google Search Console under `dbredesen@gmail.com`, the Cloud project owner, on September 22. Keep the verification TXT record in DNS. The proposed Wix homepage was still returning 404 afterward; domain ownership does not publish the page drafts.
+In Namecheap, open **Domain List → developedby.ai → Manage → Advanced DNS → Host Records → Add New Record**. Add **CNAME Record** with **Host `jev`**, **Value `dbredesen.github.io`**, and **TTL Automatic**; save the checkmark. Do not include `/jev-sheets` in the value. Do not change the existing `@`, `www`, email, or Google Search Console TXT records. If Namecheap's Host Records cannot be edited because another service runs authoritative DNS, make this CNAME in that service instead. GitHub must have `jev.developedby.ai` configured as this repository's Pages custom domain *before* the CNAME is added. After DNS resolves and GitHub provisions a certificate, enable **Enforce HTTPS** under repository **Settings → Pages**.
+
+The **Domain** property `developedby.ai` was verified in Google Search Console under `dbredesen@gmail.com`, the Cloud project owner, on September 22. Keep its TXT record in DNS. Google ownership verification is separate from GitHub Pages domain configuration. The old Wix URL remains 404 and should not be used for the listing.
 
 ## Review package
 

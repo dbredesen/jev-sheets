@@ -23,7 +23,7 @@ Marketplace SDK added `userinfo.email` and `userinfo.profile` to the permissions
 
 ## Pending
 
-1. Publish the five [Wix pages](README.md) and confirm their exact URLs. The proposed homepage still returned **404** in Chrome after DNS ownership verification on September 22. Domain ownership itself is now verified; the DNS challenge is complete.
+1. Publish the five [GitHub Pages pages](README.md) at `jev.developedby.ai`, replacing the unused Wix URL. The owner must add the `jev` CNAME in Namecheap after the repository's Pages custom domain is configured. Verify all five pages over HTTPS, then update the live Google OAuth branding and Marketplace listing from the old Wix URLs to the new ones. The domain ownership TXT check is already complete.
 2. Reconcile SDK-added identity scopes, finish OAuth production/verification, and provide a demonstration recording if requested.
 3. Provide a dedicated TypeSafe reviewer key privately, with suitable controls; confirm the bring-your-own-key setup is accepted for review. A second-account API call remains untested because no key was supplied for that account; installation and formula registration were verified independently.
 4. Submit for Marketplace review and address Google's feedback. No approval or publication date is implied by the saved draft.

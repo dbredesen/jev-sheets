@@ -1,10 +1,10 @@
 # Jev for Sheets — Privacy Policy
 
-Last updated: September 22, 2026
+Last updated: September 23, 2026
 
 Jev for Sheets is maintained by Dave Bredesen. Contact: [dbredesen@gmail.com](mailto:dbredesen@gmail.com).
 
-This policy describes the Jev for Sheets add-on and its per-spreadsheet script installation. Google, TypeSafe, Wix, and GitHub operate their own services under their own policies.
+This policy describes the Jev for Sheets add-on and its per-spreadsheet script installation. Google, TypeSafe, and GitHub operate their own services under their own policies.
 
 ## Information processed and why
 
@@ -12,7 +12,7 @@ When a Jev formula evaluates, the script sends its supplied data and question to
 
 Google Apps Script runs this processing. Jev for Sheets does not route inference requests through a separate server operated by Dave Bredesen. A convenience formula with blank data does not make an API request. The Test saved key action sends a built-in sample question about the word “dog”.
 
-The script uses the active spreadsheet ID to associate its connection with that spreadsheet. Menu actions can create example worksheets and read/re-enter Jev formulas in the active spreadsheet to refresh their results. The add-on does not request access to your email, contacts, or all of your Drive files.
+The script uses the active spreadsheet ID to associate its connection with that spreadsheet. Menu actions can create example worksheets and read/re-enter Jev formulas in the active spreadsheet to refresh their results. Google's Marketplace installation consent also requests your email address, name, and profile picture. The Jev script does not intentionally read or store those identity details. It does not request access to your contacts or all of your Drive files.
 
 ## API keys and spreadsheet connections
 

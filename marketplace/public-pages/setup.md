@@ -27,4 +27,4 @@ Formula inputs are sent to TypeSafe for processing. Save secrets only through th
 
 After connecting, disconnecting, or replacing a connection, use **Refresh Jev formulas**. Nested expressions such as IF(JEV_NOUL(...),...) need manual re-entry. Changing input cells and referenced choices normally causes recalculation.
 
-Removing your personal saved key does not disconnect spreadsheets that already hold its connection. Disconnect each spreadsheet separately or revoke the key in TypeSafe to disable it everywhere. See [privacy and deletion](https://developedby.ai/jev-sheets/privacy/).
+Removing your personal saved key does not disconnect spreadsheets that already hold its connection. Disconnect each spreadsheet separately or revoke the key in TypeSafe to disable it everywhere. See [privacy and deletion](https://jev.developedby.ai/privacy/).
