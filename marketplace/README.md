@@ -2,7 +2,7 @@
 
 Publisher: **Dave Bredesen** · Support: **dbredesen@gmail.com** · App: **Jev for Sheets**.
 
-These are preparation materials, not an approved or submitted listing.
+The OAuth data-access request and public Marketplace listing were submitted September 25, 2026, and are under Google review. The add-on is not yet publicly available.
 
 ## Public website on GitHub Pages
 
@@ -16,7 +16,7 @@ The five Markdown drafts in `public-pages/` are the editable source. `npm run si
 | https://jev.developedby.ai/support/ | [Support](public-pages/support.md) |
 | https://jev.developedby.ai/setup/ | [Setup](public-pages/setup.md) |
 
-The owner should review the privacy policy and terms as publisher. The site has visible Privacy, Terms, Support, and Setup navigation and retains draft availability wording until Marketplace approval.
+The owner should review the privacy policy and terms as publisher. The site has visible Privacy, Terms, Support, and Setup navigation and reports review status until Marketplace approval.
 
 ### DNS configuration
 

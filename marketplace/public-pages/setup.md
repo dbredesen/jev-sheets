@@ -4,7 +4,7 @@ A TypeSafe account and API key are required. [Open TypeSafe](https://console.typ
 
 ## Local installation
 
-Follow the repository's [Local Installation](https://github.com/dbredesen/jev-sheets#local-installation) instructions to build and install the script in one spreadsheet. Repeat for each additional spreadsheet. Marketplace publication is in preparation; do not look for an approved store installation link yet.
+Follow the repository's [Local Installation](https://github.com/dbredesen/jev-sheets#local-installation) instructions to build and install the script in one spreadsheet. Repeat for each additional spreadsheet. The public Marketplace listing is under Google review; there is no approved store installation link yet.
 
 ## Marketplace draft testing
 

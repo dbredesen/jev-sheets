@@ -15,7 +15,7 @@ For example: `=JEV_CHOICE(B3, "Which team should handle this?", "Sales", "Suppor
 
 ## Availability and setup
 
-The project is currently available for local installation in individual spreadsheets. Marketplace publication is in preparation; there is no approved Marketplace installation link yet.
+The project is currently available for local installation in individual spreadsheets. The public Marketplace listing is under Google review; there is no approved Marketplace installation link yet.
 
 [Source and local installation instructions](https://github.com/dbredesen/jev-sheets#local-installation) · [Setup guide](https://jev.developedby.ai/setup/)
 
