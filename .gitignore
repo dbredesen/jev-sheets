@@ -4,3 +4,5 @@ dist/
 .clasprc.json
 .env*
 !.env.example
+.DS_Store
+/Jev for Sheets Auth Reel.mp4
