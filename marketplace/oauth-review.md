@@ -12,7 +12,7 @@ Authorized domain: developedby.ai. Domain ownership and live public pages must b
 | script.container.ui | Display the key/settings sidebar, menu feedback, and formula help in Sheets. | Open API key & connection and Help. |
 | script.external_request | Send the formula's explicit inputs to https://api.typesafe.ai/v1/systemone with the user's TypeSafe key. | Test a review-only key and calculate representative formulas. |
 
-The three functional scopes above are declared in `src/appsscript.json` and OAuth Data Access. The Marketplace SDK also automatically includes `userinfo.email` and `userinfo.profile`; the SDK restored them after removal, and draft installation consent displayed both. The script does not use either identity scope. Before OAuth verification, reconcile this SDK-added pair with Google's scope-matching guidance and explain the observed consent behavior accurately. Do not add unnecessary identity access to the Apps Script manifest merely to make the lists look identical. Google Console currently classifies `script.container.ui` and `script.external_request` as sensitive, `spreadsheets.currentonly` as non-sensitive, and no declared scope as restricted. This app does not request Drive-wide or Gmail access.
+The three functional scopes above are declared in `src/appsscript.json`. The Marketplace SDK also automatically includes `userinfo.email` and `userinfo.profile`; the SDK restored them after removal, and draft installation consent displayed both. On September 23 OAuth Data Access was aligned with all five permissions actually shown at installation. The script does not use either identity scope, so they are not added to the Apps Script manifest merely to make the lists look identical. Google Console classifies `script.container.ui` and `script.external_request` as sensitive, and the other three as non-sensitive; no restricted scope is declared. This app does not request Drive-wide or Gmail access.
 
 ## Demo recording script
 
@@ -28,7 +28,7 @@ Use a dedicated reviewer key and synthetic sample data. Never show the key chara
 8. Show a second spreadsheet has no connection by default. Demonstrate removing a saved key and disconnecting separately.
 9. Show privacy/deletion instructions and support contact.
 
-Record only after the installation being demonstrated is validated. No video has been recorded or uploaded yet.
+The owner uploaded the final [OAuth reel](https://youtu.be/LYDnaf-G3iY) and reviewed its content and credential exposure. Its URL was saved in Google Cloud Data Access and submitted for verification on September 25, 2026. The Verification Center reports **under review**. This submission uses an existing unbound spreadsheet with a saved key and connection, rather than showing a new spreadsheet activation or new key entry.
 
 ## Reviewer authentication note
 
