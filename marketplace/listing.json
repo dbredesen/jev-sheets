@@ -1,7 +1,7 @@
 {
-  "name": "Jev for Sheets",
+  "name": "Jev for Sheets™",
   "language": "en",
-  "shortDescription": "Classify text, score feedback, and answer yes/no questions with TypeSafe Jev formulas in Google Sheets. Bring your own TypeSafe API key.",
+  "shortDescription": "Classify text, score feedback, and answer yes/no questions with TypeSafe Jev formulas in Google Sheets™. Bring your own TypeSafe API key.",
   "publisher": "Dave Bredesen",
   "supportEmail": "dbredesen@gmail.com",
   "developerWebsite": "https://developedby.ai/",
@@ -20,5 +20,5 @@
     "https://www.googleapis.com/auth/script.container.ui",
     "https://www.googleapis.com/auth/script.external_request"
   ],
-  "status": "DRAFT_NOT_SUBMITTED"
+  "status": "DRAFT_REVISED_AFTER_BRANDING_FEEDBACK"
 }

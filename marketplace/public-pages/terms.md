@@ -1,8 +1,8 @@
-# Jev for Sheets — Terms of Use
+# Jev for Sheets™ — Terms of Use
 
-Last updated: September 22, 2026
+Last updated: September 25, 2026
 
-Jev for Sheets is provided by Dave Bredesen as an independent integration. It is not an official product of Google or TypeSafe AI. Contact: [dbredesen@gmail.com](mailto:dbredesen@gmail.com).
+Jev for Sheets™ is provided by Dave Bredesen as an independent integration. It is not an official product of Google or TypeSafe AI. Contact: [dbredesen@gmail.com](mailto:dbredesen@gmail.com).
 
 ## Service and third-party accounts
 
@@ -16,7 +16,7 @@ Use the software only with data and accounts you are authorized to use. Do not u
 
 ## Availability and warranty
 
-Google Apps Script quotas, TypeSafe availability, account permissions, and service changes can affect operation. No uninterrupted availability, support response time, or compatibility guarantee is offered. To the extent permitted by applicable law, the software is provided “as is” and “as available”, without warranties of merchantability, fitness for a particular purpose, or non-infringement. Nothing in these terms excludes rights or liability that cannot lawfully be excluded.
+Google Apps Script™ quotas, TypeSafe availability, account permissions, and service changes can affect operation. No uninterrupted availability, support response time, or compatibility guarantee is offered. To the extent permitted by applicable law, the software is provided “as is” and “as available”, without warranties of merchantability, fitness for a particular purpose, or non-infringement. Nothing in these terms excludes rights or liability that cannot lawfully be excluded.
 
 ## Privacy and ending use
 

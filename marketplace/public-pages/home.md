@@ -1,8 +1,8 @@
-# Jev for Sheets
+# Jev for Sheets™
 
 Classify text, score feedback, and ask yes/no questions with spreadsheet formulas powered by TypeSafe AI's Jev model.
 
-Developed by **Dave Bredesen**. An independent integration for Google Sheets; not an official Google or TypeSafe product.
+Developed by **Dave Bredesen**. An independent integration for Google Sheets™; not an official Google or TypeSafe product.
 
 ## Four formulas
 

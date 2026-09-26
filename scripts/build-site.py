@@ -21,11 +21,11 @@ OUTPUT = ROOT / "docs"
 DOMAIN = "jev.developedby.ai"
 BASE_URL = f"https://{DOMAIN}"
 PAGES = {
-    "home": ("Jev for Sheets", "Classify text, score feedback, and answer questions in Google Sheets with TypeSafe Jev."),
-    "setup": ("Setup", "Install Jev for Sheets and connect your TypeSafe API key."),
-    "privacy": ("Privacy Policy", "How Jev for Sheets handles spreadsheet data, API keys, and TypeSafe requests."),
-    "terms": ("Terms of Use", "Terms for the Jev for Sheets Google Sheets integration."),
-    "support": ("Support", "Get help with Jev for Sheets formulas, installation, and API connections."),
+    "home": ("Jev for Sheets™", "Classify text, score feedback, and answer questions in Google Sheets™ with TypeSafe Jev."),
+    "setup": ("Setup", "Install Jev for Sheets™ and connect your TypeSafe API key."),
+    "privacy": ("Privacy Policy", "How Jev for Sheets™ handles spreadsheet data, API keys, and TypeSafe requests."),
+    "terms": ("Terms of Use", "Terms for the Jev for Sheets™ Google Sheets™ integration."),
+    "support": ("Support", "Get help with Jev for Sheets™ formulas, installation, and API connections."),
 }
 
 
@@ -60,21 +60,21 @@ def render_page(slug: str, title: str, description: str) -> str:
   <link rel="canonical" href="{canonical}">
   <link rel="icon" type="image/png" href="{prefix}assets/icon-128.png">
   <link rel="stylesheet" href="{prefix}assets/site.css">
-  <title>{escape(title if slug == 'home' else title + ' · Jev for Sheets')}</title>
+  <title>{escape(title if slug == 'home' else title + ' · Jev for Sheets™')}</title>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="{prefix}" aria-label="Jev for Sheets home">
+      <a class="brand" href="{prefix}" aria-label="Jev for Sheets™ home">
         <img src="{prefix}assets/icon-128.png" width="40" height="40" alt="">
-        <span>Jev for Sheets</span>
+        <span>Jev for Sheets™</span>
       </a>
       <nav class="site-nav" aria-label="Main navigation">{nav}</nav>
     </div>
   </header>
   <main id="content" class="shell">
-    <div class="eyebrow">Google Sheets + TypeSafe Jev</div>
+    <div class="eyebrow">Google Sheets™ + TypeSafe Jev</div>
     <article class="content {'home' if slug == 'home' else 'document'}">
 {converted.rstrip()}
     </article>
@@ -84,6 +84,7 @@ def render_page(slug: str, title: str, description: str) -> str:
       <span>Independent open-source integration by Dave Bredesen.</span>
       <a href="https://github.com/dbredesen/jev-sheets">Source on GitHub</a>
       <a href="mailto:dbredesen@gmail.com">Contact support</a>
+      <span>Google Sheets™ is a trademark of Google LLC.</span>
     </div>
   </footer>
 </body>
