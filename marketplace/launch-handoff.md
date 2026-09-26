@@ -1,6 +1,6 @@
 # Production launch handoff
 
-Status checked September 25, 2026. The OAuth data-access request and public Marketplace listing are both **under Google review**. The add-on is not yet publicly available. See [publication-status.md](publication-status.md) for live draft-installation evidence.
+Status checked September 25, 2026. The OAuth branding/data-access request and corrected public Marketplace listing are **under Google review**. The add-on is not yet publicly available. See [publication-status.md](publication-status.md) for live draft-installation evidence.
 
 ## Completed by Codex
 
@@ -12,6 +12,7 @@ Status checked September 25, 2026. The OAuth data-access request and public Mark
 - With the owner's explicit approval, switched OAuth to **In production**, verified and published its branding, aligned OAuth Data Access with all five permissions displayed during Marketplace draft installation, and saved the sensitive-scope justification.
 - Saved the owner-uploaded [OAuth demonstration video](https://youtu.be/LYDnaf-G3iY) in Google Cloud and submitted data-access verification. Google shows **under review**.
 - Corrected and saved the Marketplace developer email, then submitted the public Store Listing for review. Google says the draft is in review and locked against editing; approval will publish it automatically.
+- After Google's trademark rejection, added ™ to Jev for Sheets and Google Sheets in the Marketplace name/descriptions and public website, added Google LLC attribution, aligned the OAuth app name, and resubmitted the listing. Google shows both OAuth branding/data access and the listing under review.
 
 ## Owner actions needed
 
