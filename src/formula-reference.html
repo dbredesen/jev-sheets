@@ -1,0 +1,12 @@
+<!doctype html>
+<html><head><base target="_blank"><meta charset="utf-8"><style>
+body{font:14px/1.5 Arial,sans-serif;color:#172b3a;padding:16px;margin:0}p{margin:8px 0 14px}.formula{margin:0 0 14px}.formula code{background:#f1f3f4;border-radius:3px;padding:2px 4px;overflow-wrap:anywhere;font:13px/1.5 monospace;box-decoration-break:clone;-webkit-box-decoration-break:clone}a{color:#185abc}a:focus-visible{outline:2px solid #1a73e8;outline-offset:2px}
+</style></head><body>
+<p class="formula"><code>JEV_NOUL(data, question, [threshold])</code> — TRUE when probability is greater than the threshold (default 0.5).</p>
+<p class="formula"><code>JEV_CHOICE(data, question, choice1, …)</code> — Choose from 2–255 distinct labels or a vertical range.</p>
+<p class="formula"><code>JEV_SCORE(data, question, level1, level2, …)</code> — Score against 2–10 ordered levels; results range from 0 to N−1.</p>
+<p class="formula"><code>JEV(state_json, questions_json, [model])</code> — Return complete response JSON. The default model is <code>jev-latest</code>.</p>
+<p>Each formula sends its supplied data to TypeSafe. All collaborators use the account connected to this spreadsheet. Keys are not written to cells. Blank data returns blank. Dates are sent as ISO timestamps; cell formatting is not included.</p>
+<p>After changing a connection, choose Refresh Jev formulas. Nested Jev formulas must be re-entered manually. Previously calculated values can remain visible until recalculation.</p>
+<p>Documentation: <a href="https://docs.typesafe.ai/primitives" rel="noopener noreferrer">https://docs.typesafe.ai/primitives</a></p>
+</body></html>

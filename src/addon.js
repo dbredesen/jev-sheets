@@ -84,7 +84,7 @@ function onOpen(e) {
     .addItem('API key & connection', 'jevShowSettings')
     .addItem('Refresh Jev formulas', 'jevRefresh')
     .addSeparator().addItem('Add sample worksheets', 'jevAddSamples')
-    .addItem('Help', 'jevHelp').addToUi();
+    .addItem('Formula reference', 'jevFormulaReference').addToUi();
 }
 function onInstall(e) { onOpen(e); }
 function jevShowSettings() {
@@ -137,13 +137,8 @@ function jevRefresh() {
   ss.toast('Refreshed ' + count + ' direct Jev formulas.', 'Jev');
   return count;
 }
-function jevHelp() {
-  SpreadsheetApp.getUi().alert('Jev for Sheets',
-    'JEV_NOUL(data, question, [threshold]): TRUE when probability > threshold (default 0.5).\n\n' +
-    'JEV_CHOICE(data, question, choice1, …): 2–255 distinct labels or vertical ranges.\n\n' +
-    'JEV_SCORE(data, question, level1, level2, …): 2–10 levels; results range from 0 to N−1.\n\n' +
-    'JEV(state_json, questions_json, [model]): complete response JSON. Default model: jev-latest.\n\n' +
-    'Each formula sends its supplied data to TypeSafe. All collaborators use the account connected to this spreadsheet. Keys are not written to cells. Blank data returns blank. Dates are sent as ISO timestamps; cell formatting is not included.\n\n' +
-    'After changing a connection, choose Refresh Jev formulas. Nested Jev formulas must be re-entered manually. Previously calculated values can remain visible until recalculation.\n\n' +
-    'Documentation: https://docs.typesafe.ai/primitives', SpreadsheetApp.getUi().ButtonSet.OK);
+function jevFormulaReference() {
+  SpreadsheetApp.getUi().showModalDialog(
+    HtmlService.createHtmlOutput(JEV_FORMULA_REFERENCE_HTML).setWidth(520).setHeight(540),
+    'Formula reference');
 }
