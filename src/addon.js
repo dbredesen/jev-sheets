@@ -88,17 +88,21 @@ function onOpen(e) {
 }
 function onInstall(e) { onOpen(e); }
 function jevShowSettings() {
-  SpreadsheetApp.getUi().showSidebar(HtmlService.createHtmlOutput(JEV_SETTINGS_HTML).setTitle('Jev • API key & connection'));
+  SpreadsheetApp.getUi().showSidebar(HtmlService.createHtmlOutput(JEV_SETTINGS_HTML).setTitle('Jev for Sheets™ · Settings'));
 }
 function jevSettingsStatus() {
   var user = PropertiesService.getUserProperties(), c = jevConnection_();
   var connected = !!(c && c.spreadsheetId === SpreadsheetApp.getActiveSpreadsheet().getId());
-  return {saved: !!user.getProperty('JEV_PERSONAL_KEY'), label: user.getProperty('JEV_PERSONAL_LABEL') || '', connected: connected, connectionLabel: connected ? c.label : ''};
+  var savedKey = user.getProperty('JEV_PERSONAL_KEY');
+  return {saved: !!savedKey, label: user.getProperty('JEV_PERSONAL_LABEL') || '', connected: connected,
+    connectionLabel: connected ? c.label : '', connectionMatchesSaved: !!(connected && savedKey && c.key === savedKey)};
 }
 function jevSaveKey(key, label) {
   if (typeof key !== 'string' || !key.trim() || /\s/.test(key.trim()) || key.length > 2000) JevCore.fail('Enter a valid API key.');
-  label = JevCore.text(label, 'Account label').trim();
-  if (label.length > 80) JevCore.fail('Account label must be 80 characters or fewer.');
+  if (label === undefined || label === null) label = '';
+  if (typeof label !== 'string') JevCore.fail('Label must be text.');
+  label = label.trim();
+  if (label.length > 80) JevCore.fail('Label must be 80 characters or fewer.');
   PropertiesService.getUserProperties().setProperties({JEV_PERSONAL_KEY: key.trim(), JEV_PERSONAL_LABEL: label});
   return jevSettingsStatus();
 }
@@ -111,7 +115,7 @@ function jevTestKey() {
 function jevConnect() {
   var user = PropertiesService.getUserProperties(), key = user.getProperty('JEV_PERSONAL_KEY');
   if (!key) JevCore.fail('Save your API key first.');
-  jevDocument_().setProperty('JEV_CONNECTION', JSON.stringify({spreadsheetId: SpreadsheetApp.getActiveSpreadsheet().getId(), key: key, label: user.getProperty('JEV_PERSONAL_LABEL') || 'Connected account'}));
+  jevDocument_().setProperty('JEV_CONNECTION', JSON.stringify({spreadsheetId: SpreadsheetApp.getActiveSpreadsheet().getId(), key: key, label: user.getProperty('JEV_PERSONAL_LABEL') || 'Unlabeled key'}));
   return jevSettingsStatus();
 }
 function jevDisconnect() { jevDocument_().deleteProperty('JEV_CONNECTION'); return jevSettingsStatus(); }

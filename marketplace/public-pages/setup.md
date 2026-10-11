@@ -2,21 +2,21 @@
 
 A TypeSafe account and API key are required. [Open TypeSafe](https://console.typesafe.ai/) and [manage API keys](https://console.typesafe.ai/keys). TypeSafe API charges may apply.
 
+## Marketplace installation
+
+Install [Jev for Sheets™ from Google Workspace Marketplace](https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317). In each spreadsheet, choose **Extensions → Add-ons → Manage add-ons → Jev for Sheets™ → Options → Use in this document** before entering formulas. This Google per-document activation step is required even after account-level installation. Reload if Sheets still displays `Unknown function`.
+
 ## Local installation
 
-Follow the repository's [Local Installation](https://github.com/dbredesen/jev-sheets#local-installation) instructions to build and install the script in one spreadsheet. Repeat for each additional spreadsheet. The public Marketplace listing is under Google review; there is no approved store installation link yet.
-
-## Marketplace draft testing
-
-Named testers can install the [Jev for Sheets™ draft](https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317). It is not a public approved release. In each spreadsheet, choose **Extensions → Add-ons → Manage add-ons → Jev for Sheets™ → Options → Use in this document** before entering formulas. This Google per-document activation step is required even after account-level installation. Reload if Sheets still displays `Unknown function`.
+For development, follow the repository's [Local Installation](https://github.com/dbredesen/jev-sheets#local-installation) instructions to build and install the script in one spreadsheet. Repeat for each additional spreadsheet.
 
 ## Connect an installed script or add-on
 
 1. Open **Extensions → [your Jev script/add-on name] → API key & connection**.
 2. Review and grant Google's requested permissions for the installed project.
-3. Enter an account label and your TypeSafe API key. Click **Save key**. This saves it for the script project but does not connect the spreadsheet.
+3. Enter your TypeSafe API key and, optionally, a label for your own reference. Click **Save key**. Saving another key replaces the saved key, but does not change existing spreadsheet connections.
 4. Click **Test saved key**. This makes one small API request using sample data.
-5. Read the data-sharing and shared-usage disclosure, then click **Connect my saved key**. Every collaborator's Jev formulas in this spreadsheet use that connected account.
+5. Read the data-sharing and shared-usage disclosure, then click **Connect saved key**. Every collaborator's Jev formulas in this spreadsheet use that connected account.
 6. Select **Add sample worksheets** to create Examples, Rubrics, and Tests without overwriting existing tabs. You can also enter a formula directly.
 
 Example: `=JEV_NOUL("dog", "Is it a mammal?")`

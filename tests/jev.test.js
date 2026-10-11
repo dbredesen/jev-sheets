@@ -86,6 +86,19 @@ test('credentials are personal; explicit connection is document-scoped',()=>{
   r.asDoc('one');r.ctx.jevRemoveKey();assert.equal(r.ctx.jevSettingsStatus().saved,false);assert.equal(r.ctx.jevConnectedKey_(),'bob-key');
   assert.ok(!JSON.stringify(r.ctx.jevSettingsStatus()).includes('bob-key'));
 });
+test('replacing a saved key leaves the spreadsheet on its previous key until reconnected',()=>{
+  const r=runtime();
+  r.ctx.jevSaveKey('old-key','Old account');r.ctx.jevConnect();
+  assert.equal(r.ctx.jevSettingsStatus().connectionMatchesSaved,true);
+  r.ctx.jevSaveKey('new-key','');
+  assert.equal(r.ctx.jevConnectedKey_(),'old-key');
+  assert.equal(r.ctx.jevSettingsStatus().connectionLabel,'Old account');
+  assert.equal(r.ctx.jevSettingsStatus().connectionMatchesSaved,false);
+  r.ctx.jevConnect();
+  assert.equal(r.ctx.jevConnectedKey_(),'new-key');
+  assert.equal(r.ctx.jevSettingsStatus().connectionLabel,'Unlabeled key');
+  assert.equal(r.ctx.jevSettingsStatus().connectionMatchesSaved,true);
+});
 test('fetch sends the key only in Authorization and sanitizes remote failures',()=>{
   const r=runtime();r.ctx.jevSaveKey('fixture-secret','Account');r.ctx.jevConnect();r.ctx.JEV_NOUL('dog','Mammal?');
   assert.equal(r.calls[0].url,'https://api.typesafe.ai/v1/systemone');assert.equal(r.calls[0].options.headers.Authorization,'Bearer fixture-secret');assert.equal(r.calls[0].options.followRedirects,false);assert.ok(!r.calls[0].options.payload.includes('fixture-secret'));
