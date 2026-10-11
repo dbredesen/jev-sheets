@@ -1,19 +1,20 @@
 <!doctype html>
 <html><head><base target="_top"><meta charset="utf-8"><title>Jev for Sheets™ · Settings</title><style>
-body{font:14px/1.5 Arial,sans-serif;color:#172b3a;padding:16px;margin:0}h2{font-size:18px;margin:0 0 12px}label{display:block;margin-top:14px;font-weight:600}input{box-sizing:border-box;width:100%;padding:10px;border:1px solid #9aacb8;border-radius:5px;margin-top:4px}input::placeholder{font-style:italic;color:#8b959c;opacity:1}button{padding:9px 12px;border:1px solid #bdcbd4;border-radius:5px;background:#fff;color:#172b3a;cursor:pointer;margin:8px 4px 0 0}button.primary{background:#1a73e8;color:white;border-color:#1a73e8}a{color:#185abc}details{margin-top:16px}summary{cursor:pointer}input:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible,h2:focus-visible{outline:2px solid #1a73e8;outline-offset:2px}button:disabled{opacity:.5;cursor:wait}p{margin:10px 0}.muted{font-size:12px;color:#4b6170}section{margin-top:22px;padding-top:18px;border-top:1px solid #dbe4e9}#message{white-space:pre-wrap;overflow-wrap:anywhere}#message.error{color:#a52424}.status{padding:10px 12px;background:#edf4f7;border:1px solid #d1e0e7;border-radius:5px;color:#173647;font-weight:600}
+body{font:14px/1.5 Arial,sans-serif;color:#172b3a;padding:16px;margin:0}h2{font-size:18px;margin:0 0 12px}label{display:block;margin-top:14px;font-weight:600}input{box-sizing:border-box;width:100%;padding:10px;border:1px solid #9aacb8;border-radius:5px;margin-top:4px}input::placeholder{font-style:italic;color:#8b959c;opacity:1}input[aria-invalid="true"]{border-color:#a52424}button{padding:9px 12px;border:1px solid #bdcbd4;border-radius:5px;background:#fff;color:#172b3a;cursor:pointer;margin:8px 4px 0 0}button.primary{background:#1a73e8;color:white;border-color:#1a73e8}a{color:#185abc}details{margin-top:16px}summary{cursor:pointer}input:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible,h2:focus-visible{outline:2px solid #1a73e8;outline-offset:2px}button:disabled{opacity:.5;cursor:not-allowed}p{margin:10px 0}.muted{font-size:12px;color:#4b6170}section{margin-top:22px;padding-top:18px;border-top:1px solid #dbe4e9}#key-error{font-size:12px;color:#a52424;white-space:pre-wrap;overflow-wrap:anywhere;margin:4px 0 0}#key-error:empty{display:none}#message{white-space:pre-wrap;overflow-wrap:anywhere}#message.error{color:#a52424}.status{padding:10px 12px;background:#edf4f7;border:1px solid #d1e0e7;border-radius:5px;color:#173647;font-weight:600}
 </style></head><body>
 <h2>1. Provide a TypeSafe key</h2>
 <p>Use your own <a href="https://console.typesafe.ai/" target="_blank" rel="noopener noreferrer">TypeSafe account</a> and <a href="https://console.typesafe.ai/keys" target="_blank" rel="noopener noreferrer">API key</a>. TypeSafe API usage may incur charges.</p>
 <p class="muted">Saving a key does not connect this spreadsheet or send its data.</p>
-<label for="key">API key</label><input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your TypeSafe API key">
+<label for="key">API key</label><input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your TypeSafe API key" aria-describedby="key-error"><p id="key-error" role="alert"></p>
 <label for="label">Label (optional)</label><input id="label" maxlength="80" placeholder="My TypeSafe account">
 <p class="muted">For reference only; shown beside saved key and spreadsheet connection.</p>
-<button class="primary" id="save">Save key</button>
+<button class="primary" id="save" disabled>Save key</button>
 <p class="muted">Saving a key replaces the previously saved key. Existing spreadsheet connections stay unchanged until you connect again.</p>
 <p id="personal" class="status">Loading saved key…</p>
 <details><summary>Remove saved key</summary><button id="remove">Remove my saved key</button><p class="muted">Removing your saved key does not disconnect spreadsheets already connected to it. Disconnect those separately or <a href="https://console.typesafe.ai/keys" target="_blank" rel="noopener noreferrer">revoke the key at TypeSafe</a>.</p></details>
-<section><h2 id="connection-heading" tabindex="-1">2. Connect this spreadsheet</h2><p class="status" id="connection">Loading connection…</p>
+<section><h2 id="connection-heading" tabindex="-1">2. Connect this spreadsheet</h2>
 <p>Connecting lets collaborators use your saved TypeSafe key in this spreadsheet. Each nonblank Jev formula sends its inputs to TypeSafe and may incur API charges.</p>
+<p class="status" id="connection">Loading connection…</p>
 <button id="connect">Connect this spreadsheet</button><button id="test">Test saved key</button><button id="disconnect">Disconnect spreadsheet</button>
 <p class="muted">Testing the key makes one TypeSafe request with sample data.</p>
 <p id="message" role="status" aria-live="polite"></p>
@@ -22,9 +23,11 @@ body{font:14px/1.5 Arial,sans-serif;color:#172b3a;padding:16px;margin:0}h2{font-
 <p class="muted"><a href="https://github.com/dbredesen/jev-sheets#formulas" target="_blank" rel="noopener noreferrer">Formula help</a> · <a href="mailto:dbredesen@gmail.com" target="_blank" rel="noopener noreferrer">Support</a></p>
 <script>
 var lastStatus=null, pending=false;
-function controls(){document.querySelectorAll('button').forEach(function(b){b.disabled=pending;});if(!pending){['test','connect','remove'].forEach(function(id){document.getElementById(id).disabled=!lastStatus||!lastStatus.saved;});document.getElementById('disconnect').disabled=!lastStatus||!lastStatus.connected;}}
+function controls(){document.querySelectorAll('button').forEach(function(b){b.disabled=pending;});if(!pending){document.getElementById('save').disabled=!document.getElementById('key').value.trim();['test','connect','remove'].forEach(function(id){document.getElementById(id).disabled=!lastStatus||!lastStatus.saved;});document.getElementById('disconnect').disabled=!lastStatus||!lastStatus.connected;}}
 function busy(value){pending=value;controls();}
 function message(text,error){var el=document.getElementById('message');el.textContent=text;el.className=error?'error':'';}
+function keyError(text){var key=document.getElementById('key');document.getElementById('key-error').textContent=text;key.setAttribute('aria-invalid',text?'true':'false');}
+function validateKey(value){if(/\s/.test(value.trim()))return 'API key cannot contain spaces or line breaks.';if(value.length>2000)return 'API key must be 2,000 characters or fewer.';return '';}
 function status(s){
   lastStatus=s;controls();
   document.getElementById('personal').textContent=s.saved?'Saved key: '+(s.label||'Unlabeled key')+'.':'No key saved.';
@@ -40,8 +43,9 @@ function status(s){
   document.getElementById('connect').className=s.saved&&(!s.connected||!s.connectionMatchesSaved)?'primary':'';
 }
 function showConnectionStep(){var heading=document.getElementById('connection-heading');var reduced=typeof window!=='undefined'&&window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;heading.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});heading.focus({preventScroll:true});}
-function call(name,args,done){busy(true);message('Working…');var runner=google.script.run.withSuccessHandler(function(result){busy(false);done(result);}).withFailureHandler(function(error){busy(false);message(error.message||'Action failed.',true);});runner[name].apply(runner,args||[]);}
-document.getElementById('save').onclick=function(){var key=document.getElementById('key'), label=document.getElementById('label');call('jevSaveKey',[key.value,label.value],function(s){key.value='';label.value='';status(s);message('');showConnectionStep();});};
+function call(name,args,done,onError){busy(true);if(!onError)message('Working…');var runner=google.script.run.withSuccessHandler(function(result){busy(false);done(result);}).withFailureHandler(function(error){busy(false);if(onError)onError(error);else message(error.message||'Action failed.',true);});runner[name].apply(runner,args||[]);}
+document.getElementById('key').oninput=function(){keyError('');controls();};
+document.getElementById('save').onclick=function(){var key=document.getElementById('key'), label=document.getElementById('label');if(!key.value.trim()){controls();return;}var error=validateKey(key.value);if(error){keyError(error);return;}keyError('');call('jevSaveKey',[key.value,label.value],function(s){key.value='';label.value='';status(s);message('');showConnectionStep();},function(error){keyError(error.message||'Could not save the API key.');});};
 document.getElementById('test').onclick=function(){call('jevTestKey',[],function(result){message(result);});};
 document.getElementById('connect').onclick=function(){call('jevConnect',[],function(s){status(s);message('Spreadsheet connected to '+(s.connectionLabel||'Unlabeled key')+'. Refresh Jev formulas from the menu.');});};
 document.getElementById('disconnect').onclick=function(){call('jevDisconnect',[],function(s){status(s);message('Spreadsheet disconnected. Refresh formulas to clear stale results.');});};
