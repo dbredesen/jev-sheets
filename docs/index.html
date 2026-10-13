@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Classify text, score feedback, and answer questions in Google Sheets™ with TypeSafe Jev.">
+  <meta name="description" content="Bring Jev’s System One model to Google Sheets. Classify text, score sentiment, and answer yes/no questions with formulas. TypeSafe API key required.">
   <meta name="theme-color" content="#132822">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Jev for Sheets™">
-  <meta property="og:description" content="Classify text, score feedback, and answer questions in Google Sheets™ with TypeSafe Jev.">
+  <meta property="og:title" content="Jev for Sheets™ — AI Classification, Scoring &amp; Decisions">
+  <meta property="og:description" content="Bring Jev’s System One model to Google Sheets. Classify text, score sentiment, and answer yes/no questions with formulas. TypeSafe API key required.">
   <meta property="og:url" content="https://jev.developedby.ai/">
   <meta property="og:image" content="https://jev.developedby.ai/assets/icon-128.png">
   <link rel="canonical" href="https://jev.developedby.ai/">
   <link rel="icon" type="image/png" href="./assets/icon-128.png">
   <link rel="stylesheet" href="./assets/site.css">
-  <title>Jev for Sheets™</title>
+  <title>Jev for Sheets™ — AI Classification, Scoring &amp; Decisions</title>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -25,32 +25,42 @@
       </a>
       <nav class="site-nav" aria-label="Main navigation"><a href="./" aria-current="page">Overview</a>
 <a href="./setup/">Setup</a>
-<a href="./privacy/">Privacy Policy</a>
-<a href="./terms/">Terms of Use</a>
+<a href="./faq/">FAQ</a>
 <a href="./support/">Support</a></nav>
     </div>
   </header>
   <main id="content" class="shell">
     <div class="eyebrow">Google Sheets™ + TypeSafe Jev</div>
     <article class="content home">
-<h1>Jev for Sheets™</h1>
-<p>Classify text, score feedback, and ask yes/no questions with spreadsheet formulas powered by TypeSafe AI's Jev model.</p>
-<p>Developed by <strong>Dave Bredesen</strong>. An independent integration for Google Sheets™; not an official Google or TypeSafe product.</p>
-<h2>Four formulas</h2>
+<h1>Jev’s System One model, inside Google Sheets™</h1>
+<p>Ask questions about your data in plain language. Get categories, scores, and yes/no answers directly in your cells—with formulas you can fill down, filter, and combine.</p>
+<p>Jev is TypeSafe’s AI model for structured decisions. Jev for Sheets brings it into your spreadsheet to help categorize feedback, prioritize requests, and evaluate information against your own criteria.</p>
+<p><a href="https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317">Install from Google Workspace Marketplace</a> <a href="./setup/">Follow the setup guide</a></p>
+<p><strong>Free add-on. Your own TypeSafe account and API key are required; API usage may incur charges.</strong></p>
+<h2>Put your text to work</h2>
 <ul>
-<li><strong>JEV_NOUL</strong> answers a yes/no question about a cell using a probability threshold.</li>
-<li><strong>JEV_CHOICE</strong> chooses a label from the options you supply.</li>
-<li><strong>JEV_SCORE</strong> scores a cell against your ordered rubric.</li>
-<li><strong>JEV</strong> returns a full JSON response for advanced questions.</li>
+<li><strong>Categorize customer feedback.</strong> Label comments as billing issues, bug reports, feature requests, or other topics you choose.</li>
+<li><strong>Route incoming requests.</strong> Suggest Sales, Support, or another team for each request, then filter the results for review.</li>
+<li><strong>Score sentiment.</strong> Rate feedback against an ordered scale such as Negative, Neutral, and Positive to help you spot patterns.</li>
 </ul>
-<p>For example: <code>=JEV_CHOICE(B3, &quot;Which team should handle this?&quot;, &quot;Sales&quot;, &quot;Support&quot;, &quot;Other&quot;)</code></p>
-<h2>Availability and setup</h2>
-<p>Install <a href="https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317">Jev for Sheets™ from Google Workspace Marketplace</a>. The repository also supports local installation in individual spreadsheets for development.</p>
-<p><a href="https://github.com/dbredesen/jev-sheets#local-installation">Source and local installation instructions</a> · <a href="./setup/">Setup guide</a></p>
-<h2>Your TypeSafe account</h2>
-<p>You need a <a href="https://console.typesafe.ai/">TypeSafe account and API key</a>. The add-on has no fee; TypeSafe API usage may incur charges. Save your key through the settings menu, then explicitly connect it to a spreadsheet. Collaborators' formulas use the account connected to that spreadsheet.</p>
-<p>Your formula's data, questions, and supplied choices or score levels are sent to TypeSafe for processing. AI results can be wrong; review them before acting.</p>
-<p><a href="./privacy/">Privacy</a> · <a href="./terms/">Terms</a> · <a href="./support/">Support</a></p>
+<p>Use AI text classification and sentiment analysis through Google Sheets formulas, with the categories and criteria you choose.</p>
+<h2>See a formula in action</h2>
+<p>Suppose cell <strong>A2</strong> contains: “I was charged twice for my subscription.” After setup, enter this formula in <strong>B2</strong>:</p>
+<pre><code class="language-excel">=JEV_CHOICE(A2, &quot;What is this feedback about?&quot;, &quot;Billing&quot;, &quot;Bug&quot;, &quot;Feature request&quot;, &quot;Other&quot;)
+</code></pre>
+<p>An example result is <strong>Billing</strong>. Replace the question and labels to fit your work, then fill the formula down alongside your other comments. Each nonblank formula makes an API request; start with a small sample and review the results.</p>
+<h2>Choose the answer your sheet needs</h2>
+<ul>
+<li><strong>JEV_CHOICE</strong> returns one of the labels you supply.</li>
+<li><strong>JEV_SCORE</strong> returns a number based on your ordered scale.</li>
+<li><strong>JEV_NOUL</strong> answers a yes/no question with TRUE or FALSE, using a probability threshold.</li>
+<li><strong>JEV</strong> returns the full API response as JSON for advanced uses.</li>
+</ul>
+<p>Jev uses TypeSafe AI's Jev model. Formula inputs are sent to TypeSafe for processing, and AI results can be wrong. <a href="./faq/">Read the FAQ</a> for pricing, data handling, and installation details.</p>
+<h2>Try it in your spreadsheet</h2>
+<p>Install the add-on, activate it in your spreadsheet, and connect your TypeSafe API key. The add-on can then create sample worksheets for you to explore.</p>
+<p><a href="./setup/">Get started with the setup guide</a> · <a href="./support/">Get help</a></p>
+<p>Developed by <strong>Dave Bredesen</strong>. An independent integration for Google Sheets™; not an official Google or TypeSafe product.</p>
     </article>
   </main>
   <footer class="site-footer">
@@ -58,6 +68,8 @@
       <span>Independent open-source integration by Dave Bredesen.</span>
       <a href="https://github.com/dbredesen/jev-sheets">Source on GitHub</a>
       <a href="mailto:dbredesen@gmail.com">Contact support</a>
+      <a href="./privacy/">Privacy</a>
+      <a href="./terms/">Terms</a>
       <span>Google Sheets™ is a trademark of Google LLC.</span>
     </div>
   </footer>

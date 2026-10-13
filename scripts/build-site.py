@@ -21,7 +21,8 @@ OUTPUT = ROOT / "docs"
 DOMAIN = "jev.developedby.ai"
 BASE_URL = f"https://{DOMAIN}"
 PAGES = {
-    "home": ("Jev for Sheets™", "Classify text, score feedback, and answer questions in Google Sheets™ with TypeSafe Jev."),
+    "home": ("Jev for Sheets™ — AI Classification, Scoring & Decisions", "Bring Jev’s System One model to Google Sheets. Classify text, score sentiment, and answer yes/no questions with formulas. TypeSafe API key required."),
+    "faq": ("FAQ", "Learn about Jev’s System One model, Jev for Sheets™, TypeSafe API costs, API keys, data handling, and installation."),
     "setup": ("Setup", "Install Jev for Sheets™ and connect your TypeSafe API key."),
     "privacy": ("Privacy Policy", "How Jev for Sheets™ handles spreadsheet data, API keys, and TypeSafe requests."),
     "terms": ("Terms of Use", "Terms for the Jev for Sheets™ Google Sheets™ integration."),
@@ -43,7 +44,7 @@ def render_page(slug: str, title: str, description: str) -> str:
         f'<a href="{prefix if key == "home" else prefix + key + "/"}"'
         + (' aria-current="page"' if key == slug else '')
         + f'>{escape(PAGES[key][0] if key != "home" else "Overview")}</a>'
-        for key in ("home", "setup", "privacy", "terms", "support")
+        for key in ("home", "setup", "faq", "support")
     )
     return f"""<!doctype html>
 <html lang="en">
@@ -84,6 +85,8 @@ def render_page(slug: str, title: str, description: str) -> str:
       <span>Independent open-source integration by Dave Bredesen.</span>
       <a href="https://github.com/dbredesen/jev-sheets">Source on GitHub</a>
       <a href="mailto:dbredesen@gmail.com">Contact support</a>
+      <a href="{prefix}privacy/">Privacy</a>
+      <a href="{prefix}terms/">Terms</a>
       <span>Google Sheets™ is a trademark of Google LLC.</span>
     </div>
   </footer>

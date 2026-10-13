@@ -25,8 +25,7 @@
       </a>
       <nav class="site-nav" aria-label="Main navigation"><a href="../">Overview</a>
 <a href="../setup/" aria-current="page">Setup</a>
-<a href="../privacy/">Privacy Policy</a>
-<a href="../terms/">Terms of Use</a>
+<a href="../faq/">FAQ</a>
 <a href="../support/">Support</a></nav>
     </div>
   </header>
@@ -37,22 +36,23 @@
 <p>A TypeSafe account and API key are required. <a href="https://console.typesafe.ai/">Open TypeSafe</a> and <a href="https://console.typesafe.ai/keys">manage API keys</a>. TypeSafe API charges may apply.</p>
 <h2>Marketplace installation</h2>
 <p>Install <a href="https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317">Jev for Sheets™ from Google Workspace Marketplace</a>. In each spreadsheet, choose <strong>Extensions → Add-ons → Manage add-ons → Jev for Sheets™ → Options → Use in this document</strong> before entering formulas. This Google per-document activation step is required even after account-level installation. Reload if Sheets still displays <code>Unknown function</code>.</p>
-<h2>Local installation</h2>
-<p>For development, follow the repository's <a href="https://github.com/dbredesen/jev-sheets#local-installation">Local Installation</a> instructions to build and install the script in one spreadsheet. Repeat for each additional spreadsheet.</p>
-<h2>Connect an installed script or add-on</h2>
+<h2>Connect your TypeSafe account</h2>
 <ol>
 <li>Open <strong>Extensions → [your Jev script/add-on name] → API key &amp; connection</strong>.</li>
 <li>Review and grant Google's requested permissions for the installed project.</li>
 <li>Enter your TypeSafe API key and, optionally, a label for your own reference. Click <strong>Save key</strong>. Saving another key replaces the saved key, but does not change existing spreadsheet connections.</li>
 <li>Click <strong>Test saved key</strong>. This makes one small API request using sample data.</li>
-<li>Read the data-sharing and shared-usage disclosure, then click <strong>Connect saved key</strong>. Every collaborator's Jev formulas in this spreadsheet use that connected account.</li>
-<li>Select <strong>Add sample worksheets</strong> to create Examples, Rubrics, and Tests without overwriting existing tabs. You can also enter a formula directly.</li>
+<li>Read the data-sharing and shared-usage disclosure, then click <strong>Connect this spreadsheet</strong> (or <strong>Update spreadsheet connection</strong> if it is already connected). Every collaborator's Jev formulas in this spreadsheet use that connected account.</li>
+<li>From the <strong>Extensions → Jev for Sheets™</strong> menu, select <strong>Add sample worksheets</strong> to create Examples, Rubrics, and Tests without overwriting existing tabs, then select <strong>Refresh Jev formulas</strong>. You can also enter a formula directly.</li>
 </ol>
 <p>Example: <code>=JEV_NOUL(&quot;dog&quot;, &quot;Is it a mammal?&quot;)</code></p>
 <p>Formula inputs are sent to TypeSafe for processing. Save secrets only through the settings menu, not in cells or source code.</p>
 <h2>Change or remove a connection</h2>
 <p>After connecting, disconnecting, or replacing a connection, use <strong>Refresh Jev formulas</strong>. Nested expressions such as IF(JEV_NOUL(...),...) need manual re-entry. Changing input cells and referenced choices normally causes recalculation.</p>
 <p>Removing your personal saved key does not disconnect spreadsheets that already hold its connection. Disconnect each spreadsheet separately or revoke the key in TypeSafe to disable it everywhere. See <a href="../privacy/">privacy and deletion</a>.</p>
+<h2>Local installation for developers</h2>
+<p>For development, follow the repository's <a href="https://github.com/dbredesen/jev-sheets#local-installation">Local Installation</a> instructions to build and install the script in one spreadsheet. Repeat for each additional spreadsheet and connect your TypeSafe account through that script's menu.</p>
+<p>Questions about costs or data handling? <a href="../faq/">Read the FAQ</a>. For installation and formula errors, visit <a href="../support/">Support</a>.</p>
     </article>
   </main>
   <footer class="site-footer">
@@ -60,6 +60,8 @@
       <span>Independent open-source integration by Dave Bredesen.</span>
       <a href="https://github.com/dbredesen/jev-sheets">Source on GitHub</a>
       <a href="mailto:dbredesen@gmail.com">Contact support</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="../terms/">Terms</a>
       <span>Google Sheets™ is a trademark of Google LLC.</span>
     </div>
   </footer>

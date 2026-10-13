@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn about Jev’s System One model, Jev for Sheets™, TypeSafe API costs, API keys, data handling, and installation.">
+  <meta name="theme-color" content="#132822">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FAQ">
+  <meta property="og:description" content="Learn about Jev’s System One model, Jev for Sheets™, TypeSafe API costs, API keys, data handling, and installation.">
+  <meta property="og:url" content="https://jev.developedby.ai/faq/">
+  <meta property="og:image" content="https://jev.developedby.ai/assets/icon-128.png">
+  <link rel="canonical" href="https://jev.developedby.ai/faq/">
+  <link rel="icon" type="image/png" href="../assets/icon-128.png">
+  <link rel="stylesheet" href="../assets/site.css">
+  <title>FAQ · Jev for Sheets™</title>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="../" aria-label="Jev for Sheets™ home">
+        <img src="../assets/icon-128.png" width="40" height="40" alt="">
+        <span>Jev for Sheets™</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation"><a href="../">Overview</a>
+<a href="../setup/">Setup</a>
+<a href="../faq/" aria-current="page">FAQ</a>
+<a href="../support/">Support</a></nav>
+    </div>
+  </header>
+  <main id="content" class="shell">
+    <div class="eyebrow">Google Sheets™ + TypeSafe Jev</div>
+    <article class="content document">
+<h1>Jev for Sheets™ — FAQ</h1>
+<p>Quick answers about the add-on, costs, and getting started. For step-by-step instructions, visit the <a href="../setup/">Setup guide</a>.</p>
+<h2>What is Jev for Sheets?</h2>
+<p>Jev for Sheets™ is a Google Sheets™ add-on that uses TypeSafe AI's Jev model to classify text, score it against a rubric, and answer yes/no questions through spreadsheet formulas. It can help you categorize customer feedback, suggest a team for an incoming request, or score sentiment. See a <a href="../">formula example on the homepage</a>.</p>
+<h2>What is a System One model?</h2>
+<p>System One is TypeSafe’s name for AI models designed to make structured decisions that software can use directly. Jev is its first public model; in Jev for Sheets, you ask a question through a formula and get a label, a score, or a TRUE/FALSE answer. Read <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe’s introduction to System One models and Jev</a> for the model’s design and capabilities.</p>
+<h2>Is Jev for Sheets free?</h2>
+<p>The add-on has no fee. It uses your own TypeSafe account, and TypeSafe API usage may incur charges; each nonblank formula evaluation makes a request. In a shared spreadsheet, all collaborators' Jev formulas use the connected account's API usage.</p>
+<h2>Do I need an API key?</h2>
+<p>Yes. Create a <a href="https://console.typesafe.ai/keys">TypeSafe account and API key</a>, save the key in the add-on's <strong>API key &amp; connection</strong> menu, and select <strong>Connect this spreadsheet</strong>. Keep the key in the settings menu, not in a cell; the <a href="../setup/">Setup guide</a> walks you through the connection.</p>
+<h2>What does Jev for Sheets send to TypeSafe?</h2>
+<p>For classification, scoring, and yes/no formulas, it sends the cell value you supply, your question, and any labels or score levels you provide. The advanced <code>JEV</code> formula sends your supplied JSON, and your connected API key authenticates requests. Read the <a href="../privacy/">Privacy policy</a> for details on processing, storage, and deletion.</p>
+<h2>How do I install Jev for Sheets?</h2>
+<p>Install it from <a href="https://workspace.google.com/marketplace/app/jev_for_sheets/33542281317">Google Workspace Marketplace</a>, then enable <strong>Use in this document</strong> for each spreadsheet where you want to use it. Connect your TypeSafe key and add the sample worksheets or enter a formula. Follow the <a href="../setup/">Setup guide</a> for the exact steps, or visit <a href="../support/">Support</a> if you get stuck.</p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>Independent open-source integration by Dave Bredesen.</span>
+      <a href="https://github.com/dbredesen/jev-sheets">Source on GitHub</a>
+      <a href="mailto:dbredesen@gmail.com">Contact support</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="../terms/">Terms</a>
+      <span>Google Sheets™ is a trademark of Google LLC.</span>
+    </div>
+  </footer>
+</body>
+</html>

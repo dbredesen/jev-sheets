@@ -6,7 +6,7 @@ Include the formula (with sensitive inputs removed), error message, installation
 
 ## Common problems
 
-- **Unknown function:** for local installation, confirm the complete built code is saved in the Apps Script™ project opened from that spreadsheet, then reload. The developer add-on test-deployment path has an unresolved registration failure; it is not the documented local setup.
+- **Unknown function:** for a Marketplace installation, enable **Use in this document** in **Extensions → Add-ons → Manage add-ons → Jev for Sheets™ → Options**, then reload. For local installation, confirm the complete built code is saved in the Apps Script™ project opened from that spreadsheet. See the [Setup guide](https://jev.developedby.ai/setup/) for both installation methods.
 - **No account connected:** open the API key & connection menu, save a key and label, explicitly connect it, then refresh Jev formulas.
 - **Authentication failed:** check the key in TypeSafe, save the replacement, and reconnect the spreadsheet. Replacing your saved key alone does not update existing connections.
 - **Rate limit or timeout:** reduce simultaneous formulas and retry later. Apps Script™ custom functions have a 30-second limit.
